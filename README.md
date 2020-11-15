@@ -27,7 +27,7 @@ For this class we have decided to use the composite pattern. The `Menu` class is
 ## Item Creator Diagram
 ![](Images/CreatorClasses.png)
 
-In this project we are using the Factory Method Pattern  to create necessary Products, in this case Item. The Concrete Products are Order, Plate, and SingleItem. PlateCreator will return a Plate and SingleItemCreator will return a Single Item. Both of these concrete creators are subclasses of ItemCreator. Within the Factory Method Pattern, we are implementing parameterized factory method. This means that PlateCreator will be responsible for all the different types of plates, differentiationg between them by the attributes passed into the constructor. Same goes for the SingleItemCreator.
+In this project we are using the Factory Method Pattern  to create necessary Products, in this case 'Item'. The Concrete Products are 'Order', 'Plate', and 'SingleItem'. 'PlateCreator' will return a 'Plate' and 'SingleItemCreator' will return a 'Single Item'. Both of these concrete creators are subclasses of 'ItemCreator'. Within the Factory Method Pattern, we are implementing parameterized factory method. This means that 'PlateCreator' will be responsible for all the different types of plates, differentiating between them using the attributes passed into the constructor. Same goes for the 'SingleItemCreator'.
 
 
 
