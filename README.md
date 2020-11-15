@@ -24,7 +24,13 @@
 
 For this class we have decided to use the composite pattern. The `Menu` class is, in this case, is the `Component`, the `BasicMenuOption` is a `Leaf` and the `BasicNestedMenu` is a `Composite`. For our project we will not be using a GUI, but rather a text-based interface, However adding a graphic interface is also possible with this class. For the menu class, one of our goals was to make it very modular, since we may be working each window of the menu separately, so this class allows for each of us to be able to separately work on different menus and later add them as either new submenus or menus of their own.
 
----
+## Item Creator Diagram
+![](Images/CreatorClasses.png)
+
+In this project we are using the Factory Method Pattern  to create necessary Products, in this case Item. The Concrete Products are Order, Plate, and SingleItem. PlateCreator will return a Plate and SingleItemCreator will return a Single Item. Both of these concrete creators are subclasses of ItemCreator. Within the Factory Method Pattern, we are implementing parameterized factory method. This means that PlateCreator will be responsible for all the different types of plates, differentiationg between them by the attributes passed into the constructor. Same goes for the SingleItemCreator.
+
+
+
  > In addition to completing the "Class Diagram" section below, you will need to 
  > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
  >   * Backlog, TODO, In progress, In testing, Done
