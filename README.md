@@ -18,6 +18,13 @@
   * The last design pattern we will be using is the Composite pattern. Our program will require several menus to be displayed to the user, and we want each menu to be treated very much the same. By using the composite pattern it will allow us to create menus, and menus withing the menus while still having one interface shared between them. This will make designing and adding to the menus much more flexible and convenient as well as scalable if we desided to expand the options of our program.
 
  > ## Phase II
+ # Class Diagrams
+## Menu Class Diagram
+![](Images\MenuClass.png)
+
+For this class we have decided to use the composite pattern. The `Menu` class is, in this case, is the `Component`, the `BasicMenuOption` is a `Leaf` and the `BasicNestedMenu` is a `Composite`. For our project we will not be using a GUI, but rather a text-based interface, However adding a graphic interface is also possible with this class. For the menu class, one of our goals was to make it very modular, since we may be working each window of the menu separately, so this class allows for each of us to be able to separately work on different menus and later add them as either new submenus or menus of their own.
+
+---
  > In addition to completing the "Class Diagram" section below, you will need to 
  > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
  >   * Backlog, TODO, In progress, In testing, Done
