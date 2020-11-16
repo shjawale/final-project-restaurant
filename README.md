@@ -24,6 +24,11 @@
 
 For this class we have decided to use the composite pattern. The `Menu` class is, in this case, is the `Component`, the `BasicMenuOption` is a `Leaf` and the `BasicNestedMenu` is a `Composite`. For our project we will not be using a GUI, but rather a text-based interface, However adding a graphic interface is also possible with this class. For the menu class, one of our goals was to make it very modular, since we may be working each window of the menu separately, so this class allows for each of us to be able to separately work on different menus and later add them as either new submenus or menus of their own.
 
+## Item Class
+![](Images/Product.PNG)
+
+In designing an Item for our Cash Register, we will be using the `Item` class as both a Component for a composite pattern and as the Context for the Strategy Pattern. The `IDisplayBehavior` class shall act as our main Strategy for our Items to create concrete strategy behaviors for displaying Items that are singular (`SingleDisplay`) such as a drink or a specific meat type, or a concrete strategy for Items containing multiple Items (`MultiDisplay`) such as for plates and orders. Then we have the three children classes of Item starting with class `SingleItem` which is a leaf for the Item Component that represents single parts of a plate of food such as the meat and/or rice for the main plate. The `SingleItem` class will also have an additional Money class which will handle money interactions and a vector of Strings which will have modifications such as "No ice" or something to that degree. Then we have the `Plate` class which is a composite of the Item Component that represents a plate of food being represented by multiple food items. Finally, we have the `Order` class which is a composite of the Item component that represents the overall order that can be composed of not only Plates of food but also of single Items. 
+
 ## Item Creator Diagram
 ![](Images/CreatorClasses.png)
 
