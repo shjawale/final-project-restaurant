@@ -9,9 +9,11 @@ class Item
 {
     protected:
         IDisplayBehavior* displayType;
+        MoneyClass price;
 
     public:
         virtual std::string displayItem(IDisplayBehavior* idb);
+        virtual MoneyClass getPrice();
 };
 
 #endif
