@@ -1,8 +1,10 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)
 
-#ADD_SUBDIRECTORY(googletest)
+project(main)
 
-#INCLUDE_DIRECTORIES(googletest/include)
+ADD_SUBDIRECTORY(googletest)
+
+INCLUDE_DIRECTORIES(googletest/include)
 
 SET(CMAKE_CXX_STANDARD 11)
 
@@ -11,5 +13,10 @@ ADD_EXECUTABLE(example
     include/src/Menu.cpp
 )
 
-#TARGET_LINK_LIBRARIES(test gtest)
-#TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
+ADD_EXECUTABLE(moneytest
+    unit_test.cpp
+    include/src/moneyclass.cpp
+)
+
+TARGET_LINK_LIBRARIES(moneytest gtest)
+TARGET_COMPILE_DEFINITIONS(moneytest PRIVATE gtest_disable_pthreads=ON)
