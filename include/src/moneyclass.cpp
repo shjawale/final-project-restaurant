@@ -1,8 +1,6 @@
 
 #include "../headers/moneyclass.h"
 
-#define ERROR 0.000001
-
 MoneyClass::MoneyClass()
 {
     Dollars = 00;
@@ -11,12 +9,7 @@ MoneyClass::MoneyClass()
 
 MoneyClass::MoneyClass(double tempMoney)
 {
-    int tempDollar;
-    double tempCent;
-    tempDollar = static_cast<int>(tempMoney);
-    tempCent = (tempDollar - tempMoney) * 100;
-    Dollars = tempDollar;
-    Cents = round(tempCent + ERROR);
+    this->setMoney(tempMoney);
 }
 
 void MoneyClass::setMoney(double tempMoney)
@@ -24,7 +17,7 @@ void MoneyClass::setMoney(double tempMoney)
     int tempDollar;
     double tempCent;
     tempDollar = static_cast<int>(tempMoney);
-    tempCent = (tempDollar - tempMoney) * 100;
+    tempCent = (tempMoney - tempDollar) * 100;
     Dollars = tempDollar;
     Cents = round(tempCent + ERROR);
 }
@@ -41,5 +34,32 @@ int MoneyClass::getCent()
 
 std::string MoneyClass::getTotal()
 {
-    return Dollars + "." + Cents;
+    std::string mon = std::to_string(Dollars) + "." + std::to_string(Cents);
+    return mon;
+}
+
+void MoneyClass::setDiscount(double discount)
+{
+    std::string totalMoney = std::to_string(Dollars) + "." + std::to_string(Cents);
+    double tm = std::stod(totalMoney);
+    tm = tm - (tm * discount);
+    this->setMoney(tm);
+}
+
+double MoneyClass::getRealMoney()
+{
+    std::string totalMoney = std::to_string(Dollars) + "." + std::to_string(Cents);
+    return std::stod(totalMoney);
+}
+
+void MoneyClass::addMoney(double tempMoney)
+{
+    double realPrice = tempMoney + this->getRealMoney();
+    this->setMoney(realPrice);
+}
+
+void MoneyClass::subMoney(double tempMoney)
+{
+    double realPrice = this->getRealMoney() - tempMoney;
+    this->setMoney(realPrice);
 }
