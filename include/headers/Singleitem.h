@@ -7,21 +7,13 @@
 #include <vector>
 
 class SingleItem : public Item
-{
-    private:
-        std::string name;
-        std::vector<std::string> modifications;
-    
+{   
     private:
         SingleItem();
-        SingleItem(std::string name, double money, IDisplayBehavior* displayType);
+        SingleItem(std::string name, IDisplayBehavior* displayType, double money);
         void addModifications(std::string mod);
         void removeModifications(std::string mod);
-        void getModifications();
         void setPrice(double money);
-        void setName(std::string name);
-        std::string getName();
-        MoneyClass getPrice();
 };
 
 #endif

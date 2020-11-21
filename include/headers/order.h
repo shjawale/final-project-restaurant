@@ -8,14 +8,11 @@
 
 class Order : public Item
 {
-    private:
-        std::vector<Item*> plates;
-
     public:
-        Order(IDisplayBehavior* displayType);
+        Order();
+        Order(std::string name, IDisplayBehavior* displayType);
         void addPlate(Item* item);
         void removePlate(Item* item);
-        MoneyClass getPrice();
 };
 
 #endif

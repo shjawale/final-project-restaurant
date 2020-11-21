@@ -8,14 +8,11 @@
 
 class Plate : public Item
 {
-    private:
-        std::vector<Item*> items;
-
     public:
-        Plate(IDisplayBehavior* displayType);
+        Plate();
+        Plate(std::string name, IDisplayBehavior* displayType);
         void addItem(Item* item);
         void removeItem(Item* item);
-        MoneyClass getPrice();
 
 };
 
