@@ -49,4 +49,73 @@ TEST(MoneyclassTest, GetTotalTest)
     EXPECT_EQ(test2->getTotal(), "1.78");
 }
 
+TEST(MoneyclassTest, DiscountTest)
+{
+    MoneyClass* test = new MoneyClass();
+
+    test->setMoney(123.45);
+    EXPECT_EQ(test->getTotal(), "123.45");
+
+    test->setDiscount(5);
+    EXPECT_EQ(test->getTotal(), "117.28");
+
+    test->setMoney(987.65);
+    EXPECT_EQ(test->getTotal(), "987.65");
+
+    test->setDiscount(20);
+    EXPECT_EQ(test->getTotal(), "790.12");
+}
+
+TEST(MoneyclassTest, RealMoneyTest)
+{
+    MoneyClass* test = new MoneyClass();
+
+    test->setMoney(123.45);
+    EXPECT_EQ(test->getRealMoney(), 123.45);
+
+    test->setMoney(34.76);
+    EXPECT_EQ(test->getRealMoney(), 34.76);
+
+    test->setMoney(987.65);
+    EXPECT_EQ(test->getRealMoney(), 987.65);
+
+    test->setMoney(20);
+    EXPECT_EQ(test->getRealMoney(), 20.00);
+}
+
+TEST(MoneyclassTest, AddMoneyTest)
+{
+    MoneyClass* test = new MoneyClass();
+
+    test->setMoney(123.45);
+    EXPECT_EQ(test->getRealMoney(), 123.45);
+
+    test->addMoney(34.76);
+    EXPECT_EQ(test->getRealMoney(), 158.21);
+
+    test->addMoney(987.65);
+    EXPECT_EQ(test->getRealMoney(), 1145.86);
+
+    test->addMoney(20);
+    EXPECT_EQ(test->getRealMoney(), 1165.86);
+}
+
+TEST(MoneyclassTest, SubMoneyTest)
+{
+    MoneyClass* test = new MoneyClass();
+
+    test->setMoney(987.65);
+    EXPECT_EQ(test->getRealMoney(), 987.65);
+
+    test->subMoney(34.76);
+    EXPECT_EQ(test->getRealMoney(), 952.89);
+
+    test->subMoney(123.45);
+    EXPECT_EQ(test->getRealMoney(), 829.44);
+
+    test->subMoney(20);
+    EXPECT_EQ(test->getRealMoney(), 809.44);
+}
+
+
 #endif
