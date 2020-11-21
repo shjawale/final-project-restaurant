@@ -1,17 +1,16 @@
 #include "Singleitem.h"
 #include <iostream>
 
-SingleItem::SingleItem()
+SingleItem::SingleItem() : Item()
 {
-    name = "No Product";
     price.setMoney(0.0);
 }
 
-SingleItem::SingleItem(std::string name, double money, IDisplayBehavior* displayType)
+SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType, double money)
 {
     this->name = name;
-    price.setMoney(money);
     this->displayType = displayType;
+    price.setMoney(money);
 }
 
 void SingleItem::addModifications(std::string mod)
@@ -30,31 +29,7 @@ void SingleItem::removeModifications(std::string mod)
     }
 }
 
-void SingleItem::getModifications()
-{
-    std::cout << "\t Modifications: " << std::endl;
-    for (int i = 0; i < modifications.size(); i++)
-    {
-        std::cout << "\t" << modifications.at(i) << std::endl; 
-    }
-}
-
 void SingleItem::setPrice(double money)
 {
     price.setMoney(money);
-}
-
-void SingleItem::setName(std::string name)
-{
-    this->name = name;
-}
-
-std::string SingleItem::getName()
-{
-    return name;
-}
-
-MoneyClass SingleItem::getPrice()
-{
-    return price;
 }

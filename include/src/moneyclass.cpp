@@ -42,7 +42,7 @@ void MoneyClass::setDiscount(double discount)
 {
     std::string totalMoney = std::to_string(Dollars) + "." + std::to_string(Cents);
     double tm = std::stod(totalMoney);
-    tm = tm - (tm * discount);
+    tm = tm - (tm * (discount / 100));
     this->setMoney(tm);
 }
 

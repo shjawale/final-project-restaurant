@@ -1,7 +1,10 @@
 #include "plate.h"
 
-Plate::Plate(IDisplayBehavior* displayType)
+Plate::Plate() : Item() {}
+
+Plate::Plate(std::string name, IDisplayBehavior* displayType)
 {
+    this->name = name;
     this->displayType = displayType;
 }
 
@@ -21,9 +24,4 @@ void Plate::removeItem(Item* item)
             price.subMoney(item->getPrice().getRealMoney());
         }
     }
-}
-
-MoneyClass Plate::getPrice()
-{
-    return price;
 }
