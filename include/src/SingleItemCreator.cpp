@@ -2,14 +2,11 @@
 #include "../header/moneyclass.h"
 #include <string>
 
-Item* SingleItemCreator::CreateItem(std::string* name, MoneyClass* price, std::vector<std::string> modification){
-	MoneyClass money = new MoneyClass(price);
-    money->setPrice(price);
-
+Item* SingleItemCreator::CreateItem(std::string* name, MoneyClass* price, std::vector*<std::string> modification){
 	Item* item = new SingleItem();
 	item->setName(name);
-	//item->setPrice(price);
-	//item->setModifications(modification);
+	item->setPrice(price);
+	item->setModifications(modification);
 	return item;
 }
 
