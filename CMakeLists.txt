@@ -11,13 +11,22 @@ SET(CMAKE_CXX_STANDARD 11)
 ADD_EXECUTABLE(example
     example.cpp
     include/components/src/Menu.cpp
+    EthanBayer/Itemclass
+
+
+ADD_EXECUTABLE(restaurant
+    restaurant.cpp
+    include/components/src/Menu.cpp
+    include/components/src/Utilities.cpp
+    include/windows/src/LoginWindow.cpp
 )
 
-ADD_EXECUTABLE(moneytest
+ADD_EXECUTABLE(unit_tests
     unit_test.cpp
     include/components/src/moneyclass.cpp
     include/components/src/item.cpp
 )
 
-TARGET_LINK_LIBRARIES(moneytest gtest)
-TARGET_COMPILE_DEFINITIONS(moneytest PRIVATE gtest_disable_pthreads=ON)
+
+TARGET_LINK_LIBRARIES(unit_tests gtest)
+TARGET_COMPILE_DEFINITIONS(unit_tests PRIVATE gtest_disable_pthreads=ON)
