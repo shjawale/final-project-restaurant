@@ -13,8 +13,6 @@ void BasicMenuOption::execute() {
 	action();
 }
 
-
-
 //============ BasicMenu ====================
 
 BasicMenu::BasicMenu(const std::string& _title): menu_title(_title){}

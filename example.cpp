@@ -1,3 +1,4 @@
+
 #include "include/components/headers/Menu.hpp"
 // The following code should be on a separate .hpp
 // I wrote it here for brevity

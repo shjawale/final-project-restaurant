@@ -1,5 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)
 
+project(main)
+
 ADD_SUBDIRECTORY(googletest)
 
 INCLUDE_DIRECTORIES(googletest/include)
@@ -9,7 +11,8 @@ SET(CMAKE_CXX_STANDARD 11)
 ADD_EXECUTABLE(example
     example.cpp
     include/components/src/Menu.cpp
-)
+    EthanBayer/Itemclass
+
 
 ADD_EXECUTABLE(restaurant
     restaurant.cpp
@@ -19,7 +22,9 @@ ADD_EXECUTABLE(restaurant
 )
 
 ADD_EXECUTABLE(unit_tests
-    tests/unit_tests.cpp
+    unit_test.cpp
+    include/components/src/moneyclass.cpp
+    include/components/src/item.cpp
 )
 
 
