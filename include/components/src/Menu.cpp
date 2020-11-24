@@ -1,4 +1,4 @@
-#include "../headers/Menu.h"
+#include "../headers/Menu.hpp"
 
 const int SEPARATOR_LENGTH = 50;
 

@@ -1,11 +1,37 @@
 #include "../headers/FileIOB.hpp"
 
 FileIOB::FileIOB(const std::string& _filename){
+    if(_filename.empty()){
+        throw std::runtime_error("EMPTY FILENAME");
+    }
     filename = _filename;
+    file_size = 0;
     get_position = 0;
     put_position = 0;
+
+// Finds the size of the file in bytes
+    fileIn.open(filename, std::ios::binary);
+    fileIn.seekg(0, fileIn.end);
+    file_size = fileIn.tellg();
+    fileIn.seekg(get_position);
+    fileIn.close();
 }
 
+void FileIOB::set_file(const std::string& _filename){
+    if(!_filename.empty()){
+        filename = _filename;
+
+        fileIn.open(filename, std::ios::binary);
+        fileIn.seekg(0, fileIn.end);
+        file_size = fileIn.tellg();
+        fileIn.seekg(get_position);
+        fileIn.close();
+    }
+}
+
+long FileIOB::tell_size(){
+    return file_size;
+}
 
 void FileIOB::write(char* data, int size){
     fileOut.open(filename, std::ios::binary | std::ios::app);
