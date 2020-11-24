@@ -2,10 +2,10 @@
 
 LoginWindow::LoginWindow(const std::string& _title,const std::string& _filename): BasicMenu(_title){
     current_user = nullptr;
-    users_file.set_file(_filename);
+    users_file = _filename;
 
     //filling up the users vector.
-    fillUsers();
+    readUsers();
 
 
     //Add functions to Options vector
@@ -26,14 +26,37 @@ LoginWindow::LoginWindow(const std::string& _title,const std::string& _filename)
 }
 
 
-void LoginWindow::fillUsers(){
-    int number_of_users = users_file.tell_size() / sizeof(User);
-    User* temp = new User();
-    users.clear();
-    for (int i = 0; i < number_of_users; i++){
-        users_file.setg(0);
-        users_file.read((char*) temp, sizeof(*temp));
-        users[temp->name] = temp;
+void LoginWindow::readUsers(){
+    std::ifstream inFile(users_file);
+    if(inFile.is_open()){
+        std::string title, username, password;
+        while(inFile >> title){
+            inFile >> username;
+            inFile >> password;
+            users[username] = new User({title, username, password});
+        }
+        inFile.close();
+    }
+    else{
+        throw std::runtime_error("inFile Did Not Open");
+    }
+}
+
+void LoginWindow::writeUsers(){
+    std::ofstream outFile;
+    outFile.open(users_file);
+
+    if(outFile.is_open()){
+        for(auto user : users){
+            outFile << user.second->title << " ";
+            outFile << user.second->name << " ";
+            outFile << user.second->password;
+            outFile << std::endl;
+        }
+        outFile.close();
+    }
+    else{
+        throw std::runtime_error("outFile Did Not Open");
     }
 }
 
@@ -47,9 +70,11 @@ void LoginWindow::login(){
     std::string password;
     getline(std::cin, password);
 
-    if(users.find(username) != users.end()){
-        if(strcmp(users.find(username)->second->password, password.c_str()) == 0){
-            current_user = users.find(username)->second;
+    auto user = users.find(username);
+
+    if(user != users.end()){
+        if(user->second->password == password){
+            current_user = user->second;
             std::cout << "Welcome " << current_user->name << "\n\n";
             return;
         }
@@ -75,14 +100,13 @@ void LoginWindow::add_user(){
     std::string title;
     getline(std::cin, title);
 
-    User temp{title.c_str(), username.c_str(), password.c_str()};
-    if(users.find(username) != users.end()){
+    if (users.find(username) != users.end()){
         std::cout << "User Already Exists\n\n";
         return;
     }
-    users_file.write((char*) &temp, sizeof(User));
-    fillUsers();
-    std::cout << "New user registered.\n\n";
+    users[username] = new User({title, username, password});
+
+    writeUsers();
 }
 
 void LoginWindow::Exit(){

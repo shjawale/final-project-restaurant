@@ -1,17 +1,18 @@
 #pragma once
 
 #include "../../components/headers/Menu.hpp"
-#include "../../components/headers/FileIOB.hpp"
 #include "../../components/headers/Utilities.hpp"
+#include <fstream>
 #include <map>
 
 
 class LoginWindow: public BasicMenu{
 private:
     std::map<std::string, User*> users;
+    std::string users_file;
     User* current_user;
-    FileIOB users_file;
-    void fillUsers();
+    void readUsers();
+    void writeUsers();
 public:
     LoginWindow(const std::string& _title, const std::string& _filename);
 

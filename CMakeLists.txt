@@ -14,7 +14,6 @@ ADD_EXECUTABLE(example
 ADD_EXECUTABLE(restaurant
     restaurant.cpp
     include/components/src/Menu.cpp
-    include/components/src/FileIOB.cpp
     include/components/src/Utilities.cpp
     include/windows/src/LoginWindow.cpp
 )

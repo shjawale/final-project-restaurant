@@ -4,7 +4,7 @@
 
 int main(){
     BasicNestedMenu menu("Restaurant");
-    menu.addWindow(new LoginWindow("Log In or Register", "users.bin"));
+    menu.addWindow(new LoginWindow("Log In or Register", "users.txt"));
 
     menu.execute();
     return 0;
