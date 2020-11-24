@@ -1,4 +1,4 @@
-#include "plate.h"
+#include "../headers/plate.h"
 
 Plate::Plate() : Item() {}
 
