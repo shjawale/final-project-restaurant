@@ -10,12 +10,13 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_EXECUTABLE(example
     example.cpp
-    include/src/Menu.cpp
+    include/components/src/Menu.cpp
 )
 
 ADD_EXECUTABLE(moneytest
     unit_test.cpp
-    include/src/moneyclass.cpp
+    include/components/src/moneyclass.cpp
+    include/components/src/item.cpp
 )
 
 TARGET_LINK_LIBRARIES(moneytest gtest)
