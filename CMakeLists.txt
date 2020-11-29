@@ -11,8 +11,7 @@ SET(CMAKE_CXX_STANDARD 11)
 ADD_EXECUTABLE(example
     example.cpp
     include/components/src/Menu.cpp
-    EthanBayer/Itemclass
-
+)
 
 ADD_EXECUTABLE(restaurant
     restaurant.cpp
