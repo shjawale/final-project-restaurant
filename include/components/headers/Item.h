@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "moneyclass.h"
+#include "IDisplayStrategy.hpp"
 
 class IDisplayBehavior;
 
@@ -19,11 +20,16 @@ class Item
     public:
         Item();
         Item(std::string name, IDisplayBehavior* displayType);
-        std::string displayItem();
         MoneyClass getPrice();
         void setName(std::string name);
         std::string getName();
         void setPrice(double money);
+        std::string getModification(int i);
+        Item* getItem(int i);
+        int getModSize();
+        int getItemSize();
+        void getDisplay();
+        double getTotalPrice();
 };
 
 #endif
