@@ -11,8 +11,8 @@ SET(CMAKE_CXX_STANDARD 11)
 ADD_EXECUTABLE(example
     example.cpp
     include/components/src/Menu.cpp
-    EthanBayer/Itemclass
-
+    # EthanBayer/Itemclass
+)
 
 ADD_EXECUTABLE(restaurant
     restaurant.cpp
@@ -25,6 +25,22 @@ ADD_EXECUTABLE(unit_tests
     unit_test.cpp
     include/components/src/moneyclass.cpp
     include/components/src/item.cpp
+    include/components/src/Singleitem.cpp
+    include/components/src/SingleItemDisplay.cpp
+    include/components/src/plate.cpp
+)
+
+ADD_EXECUTABLE( displayTestTwo
+    tests/testDisplay.cpp
+    include/components/src/item.cpp
+    include/components/src/Singleitem.cpp
+    include/components/src/SingleItemDisplay.cpp
+    include/components/src/moneyclass.cpp
+    include/components/src/MultiItemDisplay.cpp
+    include/components/src/plate.cpp
+    include/components/src/order.cpp
+    include/components/src/OrderDisplay.cpp
+    include/components/src/HelperFunctions.cpp
 )
 
 
