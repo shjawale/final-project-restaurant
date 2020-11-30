@@ -21,6 +21,7 @@ class Item
         Item();
         Item(std::string name, IDisplayBehavior* displayType);
         MoneyClass getPrice();
+        //void setDisplay(IDisplayBehavior* )
         void setName(std::string name);
         std::string getName();
         void setPrice(double money);
