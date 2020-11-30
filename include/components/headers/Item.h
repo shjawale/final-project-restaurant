@@ -20,6 +20,7 @@ class Item
         Item();
         Item(std::string name, IDisplayBehavior* displayType);
         std::string displayItem();
+		void setPrice(MoneyClass price);
         MoneyClass getPrice();
         void setName(std::string name);
         std::string getName();
