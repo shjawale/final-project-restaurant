@@ -1,12 +1,17 @@
-#include "../header/Item.h"
-#include "../header/moneyclass.h"
+#include "../components/headers/Item.h"
+#include "../components/headers/moneyclass.h"
+#include "../components/headers/Singleitem.h"
+#include "../headers/SingleItemCreator.hpp"
 #include <string>
+//#include <vector>
 
-Item* SingleItemCreator::CreateItem(std::string name, MoneyClass price, std::vector&<std::string> modification){
+
+//Fix constructor
+Item* SingleItemCreator::CreateItem(std::string name, MoneyClass price){
 	Item* item = new SingleItem();
 	item->setName(name);
 	item->setPrice(price);
-	item->setModifications(modification);
+	//item->setModifications(modification);
 	return item;
 }
 

@@ -1,12 +1,13 @@
-#include "../header/Item.h"
-#include "../header/moneyclass.h"
+#include "../components/headers/Item.h"
+#include "../components/headers/plate.h"
+#include "../components/headers/moneyclass.h"
+#include "../headers/PlateCreator.hpp"
 #include <string>
 
-Item* PlateCreator::CreateItem(std::string name, MoneyClass price, std::vector&<std::string> modification){
+Item* PlateCreator::CreateItem(std::string name, MoneyClass price){
 	Item* item = new Plate();
 	item->setName(name);
 	item->setPrice(price);
-	item->setModifications(modification);
 	return item;
 }
 
