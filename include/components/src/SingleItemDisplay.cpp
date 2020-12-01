@@ -6,8 +6,7 @@
 
 void SingleItemDisplay::display(Item* i)
 {
-    std::cout << std::setfill('-');
-    std::cout << std::right << std::setw(15) << i->getName() << std::setw(35) << "$" << i->getPrice().getTotal() << std::endl;
+    std::cout << std::setfill(' ') << std::right << std::setw(15) << i->getName() << std::setfill('-') << std::setw(35) << "$" << i->getPrice().getTotal() << std::setfill(' ') << std::endl;
     if (i->getModSize() != 0)
     {
         std::cout << std::setw(25) << "Modifications: " << std::endl;

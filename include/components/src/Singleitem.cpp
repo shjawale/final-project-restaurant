@@ -1,27 +1,26 @@
-#include "SingleItem.hpp"
+#include "../headers/Singleitem.h"
 
 SingleItem::SingleItem() : Item() {}
 
-SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType)
+SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType, double money)
 {
     this->name = name;
     this->displayType = displayType;
+    price.setMoney(money);
 }
 
-void SingleItem::addItem(Item* item)
+void SingleItem::addModifications(std::string mod)
 {
-    items.push_back(item);
-    price.addMoney(item->getPrice().getRealMoney());
+    modifications.push_back(mod);
 }
 
-void SingleItem::removeItem(Item* item)
+void SingleItem::removeModifications(std::string mod)
 {
-    for (int i = 0; i < items.size(); i++)
+    for (int i = 0; i < modifications.size(); i++)
     {
-        if (items.at(i) == item)
+        if (modifications.at(i) == mod)
         {
-            items.erase(items.begin() + i);
-            price.subMoney(item->getPrice().getRealMoney());
+            modifications.erase(modifications.begin() + i);
         }
     }
 }

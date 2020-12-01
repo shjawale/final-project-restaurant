@@ -14,5 +14,5 @@ void MultiDisplay::display(Item* i)
         std::cout << std::endl;
     }
     std::string totalName = i->getName() + " Total";
-    std::cout << std::left << std::setw(49) << totalName << "$" << i->getTotalPrice() << std::endl << std::endl;
+    std::cout << std::left << std::setw(49) << std::setfill('-') << totalName << "$" << i->getTotalPrice() << std::endl << std::endl;
 }
