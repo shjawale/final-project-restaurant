@@ -1,12 +1,13 @@
 #ifndef __PLATE_CREATOR_HPP__
-#ifndef __PLATE_CREATOR_HPP__
+#define __PLATE_CREATOR_HPP__
 
-#include "Item.h"
-#include "Money.hpp"
+#include "../components/headers/Item.h"
+#include "../components/headers/moneyclass.h"
+#include "ItemCreator.hpp"
 #include <string>
 
-class PlateCreator : public ItemCreator{
+class SingleItemCreator : public ItemCreator{
 	public:
-		virtual Item* CreateItem(string* name, money* price, std::vector<std::string> modification);
+		virtual Item* CreateItem(std::string name, MoneyClass price);
 };
 #endif

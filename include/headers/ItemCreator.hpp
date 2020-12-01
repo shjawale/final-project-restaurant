@@ -1,12 +1,13 @@
 #ifndef __ITEM_CREATOR_HPP__
-#ifndef __ITEM_CREATOR_HPP__
+#define __ITEM_CREATOR_HPP__
 
-#include "Item.h"
-#include "Money.hpp"
+#include "../components/headers/Item.h"
+#include "../components/headers/moneyclass.h"
 #include <string>
+#include <vector>
 
 class ItemCreator{
 	public:
-		virtual Item* CreateItem(string* name, money* price, std::vector<std::string> modification);
+		virtual Item* CreateItem(std::string name, MoneyClass price) = 0;
 };
 #endif
