@@ -8,12 +8,11 @@
 
 class SingleItem : public Item
 {   
-    private:
+    public:
         SingleItem();
         SingleItem(std::string name, IDisplayBehavior* displayType, double money);
         void addModifications(std::string mod);
         void removeModifications(std::string mod);
-        void setPrice(double money);
 };
 
 #endif

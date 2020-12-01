@@ -10,13 +10,39 @@ SET(CMAKE_CXX_STANDARD 11)
 
 ADD_EXECUTABLE(example
     example.cpp
-    include/src/Menu.cpp
+    include/components/src/Menu.cpp
+    # EthanBayer/Itemclass
 )
 
-ADD_EXECUTABLE(moneytest
+ADD_EXECUTABLE(restaurant
+    restaurant.cpp
+    include/components/src/Menu.cpp
+    include/components/src/Utilities.cpp
+    include/windows/src/LoginWindow.cpp
+)
+
+ADD_EXECUTABLE(unit_tests
     unit_test.cpp
-    include/src/moneyclass.cpp
+    include/components/src/moneyclass.cpp
+    include/components/src/item.cpp
+    include/components/src/Singleitem.cpp
+    include/components/src/SingleItemDisplay.cpp
+    include/components/src/plate.cpp
 )
 
-TARGET_LINK_LIBRARIES(moneytest gtest)
-TARGET_COMPILE_DEFINITIONS(moneytest PRIVATE gtest_disable_pthreads=ON)
+ADD_EXECUTABLE( displayTestTwo
+    tests/testDisplay.cpp
+    include/components/src/item.cpp
+    include/components/src/Singleitem.cpp
+    include/components/src/SingleItemDisplay.cpp
+    include/components/src/moneyclass.cpp
+    include/components/src/MultiItemDisplay.cpp
+    include/components/src/plate.cpp
+    include/components/src/order.cpp
+    include/components/src/OrderDisplay.cpp
+    include/components/src/HelperFunctions.cpp
+)
+
+
+TARGET_LINK_LIBRARIES(unit_tests gtest)
+TARGET_COMPILE_DEFINITIONS(unit_tests PRIVATE gtest_disable_pthreads=ON)

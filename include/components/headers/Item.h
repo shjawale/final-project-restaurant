@@ -1,9 +1,11 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "moneyclass.h"
 #include <string>
 #include <vector>
+#include "moneyclass.h"
+#include "IDisplayStrategy.hpp"
+
 
 class IDisplayBehavior;
 
@@ -19,13 +21,20 @@ class Item
     public:
         Item();
         Item(std::string name, IDisplayBehavior* displayType);
-        std::string displayItem();
-		void setPrice(MoneyClass price);
+		    void setPrice(MoneyClass price);
+        void setName(std::string name);
         MoneyClass getPrice();
-		void setModifications(std::vector<std::string> modifications);
-		std::vector<std::string> getModifications();
         void setName(std::string name);
         std::string getName();
+        void setPrice(double money);
+        std::string getModification(int i);
+        Item* getItem(int i);
+        int getModSize();
+        int getItemSize();
+        void getDisplay();
+        double getTotalPrice();
+        std::string displayItem();
+		void setPrice(MoneyClass price);
 };
 
 #endif

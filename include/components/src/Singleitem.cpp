@@ -1,21 +1,20 @@
+#include "SingleItem.hpp"
 
-#include "order.h"
+SingleItem::SingleItem() : Item() {}
 
-Order::Order() : Item() {}
-
-Order::Order(std::string name, IDisplayBehavior* displayType)
+SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType)
 {
     this->name = name;
     this->displayType = displayType;
 }
 
-void Order::addPlate(Item* item)
+void SingleItem::addItem(Item* item)
 {
     items.push_back(item);
     price.addMoney(item->getPrice().getRealMoney());
 }
 
-void Order::removePlate(Item* item)
+void SingleItem::removeItem(Item* item)
 {
     for (int i = 0; i < items.size(); i++)
     {

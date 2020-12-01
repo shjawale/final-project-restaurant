@@ -1,4 +1,5 @@
-#include "include/headers/Menu.h"
+
+#include "include/components/headers/Menu.hpp"
 // The following code should be on a separate .hpp
 // I wrote it here for brevity
 
@@ -11,7 +12,7 @@ struct Smoothie{
     Smoothie(double p): price(p){}
 };
 
-class SmoothieMenu: public BasicNestedMenu {
+class SmoothieMenu: public BasicMenu {
 private:
     Smoothie* smooth;
 public:
@@ -28,12 +29,12 @@ public:
 
 
 // This would go on a separate .cpp file
-
-SmoothieMenu::SmoothieMenu(const std::string& _title, Smoothie* _s): BasicNestedMenu(_title), smooth(_s){
-    choices[choices.size() + 1] = new BasicMenuOption("Enter flavor", [this](){ AskFlavor(); });
-    choices[choices.size() + 1] = new BasicMenuOption("Enter size", [this](){ AskSize(); });
-    choices[choices.size() + 1] = new BasicMenuOption("Checkout", [this](){ Checkout(); });
-    choices[choices.size() + 1] = new BasicMenuOption("Exit", [this](){ Exit(); });
+SmoothieMenu::SmoothieMenu(const std::string& _title, Smoothie* _s): BasicMenu(_title){
+    smooth = _s;
+    addOption(new BasicMenuOption("Ask Flavor", [this](){AskFlavor();}));
+    addOption(new BasicMenuOption("Ask Size", [this](){AskSize();}));
+    addOption(new BasicMenuOption("Checkout", [this](){Checkout();}));
+    addOption(new BasicMenuOption("Exit", [this](){Exit();}));
 }
 
 void SmoothieMenu::AskFlavor(){
@@ -58,15 +59,65 @@ void SmoothieMenu::Checkout(){
 }
 
 void SmoothieMenu::Exit(){
-    done = true;
+    current_option = nullptr;
 }
+
+//------------- Separate Chips Window -----------------------------------
+
+struct Chips{
+    std::string flavor;
+    double price;
+   Chips(double p): price(p){}
+};
+
+class ChipsMenu: public BasicMenu {
+private:
+   Chips* chip;
+public:
+   ChipsMenu(const std::string& _title, Chips* _c);
+
+    void AskFlavor();
+
+    void Checkout();
+
+    void Exit();
+};
+
+// ----------------- ChipsMenu ---------------------------------------
+ChipsMenu::ChipsMenu(const std::string& _title, Chips* _c): BasicMenu(_title){
+    chip = _c;
+    addOption(new BasicMenuOption("Ask Flavor", [this](){AskFlavor();}));
+    addOption(new BasicMenuOption("Checkout", [this](){Checkout();}));
+    addOption(new BasicMenuOption("Exit", [this](){Exit();}));
+}
+
+void ChipsMenu::AskFlavor(){
+    std::cin.ignore();
+    std::cout << "What flavor would you like: ";
+    std::string flavor;
+    std::getline(std::cin, flavor);
+    chip->flavor = flavor;
+}
+
+void ChipsMenu::Checkout(){
+    std::cout << "You ordered a "<< chip->flavor << " Chips.\n";
+    std::cout << std::setprecision(3) << "Your total is: $" << chip->price << "\n\n";
+}
+
+void ChipsMenu::Exit(){
+    current_option = nullptr;
+}
+
 
 //---------------- classes' code ends here ---------------------------
 
 
 int main(){
     Smoothie Asmoothie(4.57);
-    SmoothieMenu menu("Smoothie Menu", &Asmoothie);
+    Chips Achip(1.25);
+    BasicNestedMenu menu("Chips Store");
+    menu.addWindow(new SmoothieMenu("Smoothies", &Asmoothie));
+    menu.addWindow(new ChipsMenu("Chips", &Achip));
 
     menu.execute();
     return 0;
