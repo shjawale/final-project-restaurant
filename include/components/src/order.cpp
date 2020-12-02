@@ -7,6 +7,7 @@ Order::Order(std::string name, IDisplayBehavior* displayType)
 {
     this->name = name;
     this->displayType = displayType;
+    price.setMoney(0.0);
 }
 
 void Order::addPlate(Item* item)
