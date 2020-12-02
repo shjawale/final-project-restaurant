@@ -1,5 +1,6 @@
 
 #include "include/components/headers/Menu.hpp"
+#include "include/windows/headers/OrderWindow.hpp"
 // The following code should be on a separate .hpp
 // I wrote it here for brevity
 
@@ -115,9 +116,11 @@ void ChipsMenu::Exit(){
 int main(){
     Smoothie Asmoothie(4.57);
     Chips Achip(1.25);
+    OrderMenu* makeOrder = new OrderMenu("Make an Order", "fileName.txt");
     BasicNestedMenu menu("Chips Store");
     menu.addWindow(new SmoothieMenu("Smoothies", &Asmoothie));
     menu.addWindow(new ChipsMenu("Chips", &Achip));
+    menu.addWindow(makeOrder);
 
     menu.execute();
     return 0;
