@@ -22,7 +22,7 @@ void Item::setPrice(MoneyClass price)
 
 MoneyClass Item::getPrice()
 {
-	return this->price;
+    return price;
 }
 
 void Item::setName(std::string name)
@@ -77,3 +77,4 @@ double Item::getTotalPrice()
     }
     return totalprice;
 }
+
