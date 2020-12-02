@@ -11,7 +11,16 @@ SET(CMAKE_CXX_STANDARD 11)
 ADD_EXECUTABLE(example
     example.cpp
     include/components/src/Menu.cpp
-    # EthanBayer/Itemclass
+    # New classes added
+    include/components/src/item.cpp
+    include/components/src/SingleItem.cpp
+    include/components/src/plate.cpp
+    include/components/src/order.cpp
+    include/components/src/SingleItemDisplay.cpp
+    include/components/src/MultiItemDisplay.cpp
+    include/components/src/OrderDisplay.cpp
+    include/components/src/moneyclass.cpp
+    include/windows/src/OrderWindow.cpp
 )
 
 ADD_EXECUTABLE(restaurant
