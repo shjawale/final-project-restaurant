@@ -9,6 +9,6 @@ enum ItemType{PLATE_ITEM_T, SINGLE_ITEM_T};
 
 class ItemCreator{
 	public:
-		virtual Item* CreateItem(ItemType TypeId, std::string name, MoneyClass price, std::vector<std::string> modification);
+		virtual Item* CreateItem(ItemType TypeId, std::string name, double price, std::vector<std::string> modification);
 };
 #endif
