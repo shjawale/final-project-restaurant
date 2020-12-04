@@ -7,34 +7,27 @@
 #include "../../components/headers/order.h"
 #include "../../components/headers/plate.h"
 #include "../../components/headers/Singleitem.h"
+#include "../../headers/SingleItemCreator.hpp"
 #include <fstream>
 #include <map>
 #include <vector>
+#include <map>
 
 class OrderMenu : public BasicMenu
 {
     private:
-        std::vector<Item*> choices;
+        std::map<std::string, std::vector<Item*>> choices;
         Order* order;
-        void printItems();
+        std::string file;
+        SingleItemCreator c;
+        void printItems(std::string key);
+        void initialize();
     public:
-        OrderMenu(const std::string& _title, std::string fileName);
+        OrderMenu(const std::string& _title, std::string fileName, Order* order);
 
-        void MeatPlate();
+        void AddItem();
 
-        void VegPlate();
-
-        void DesertPlate();
-
-        void MixedPlate();
-
-        void ItemPlate();
-
-        void SidePlate();
-
-        void DrinkPlate();
-
-        void RemovePlate();
+        void RemoveItem();
 
         void Exit();
 
