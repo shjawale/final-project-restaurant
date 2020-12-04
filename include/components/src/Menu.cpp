@@ -1,6 +1,6 @@
 #include "../headers/Menu.hpp"
 
-const int SEPARATOR_LENGTH = 50;
+const int SEPARATOR_LENGTH = 70;
 
 
 //======== BasicMenuOption =================
@@ -43,6 +43,7 @@ void BasicMenu::execute(){
 		int choice;
 		std::cin >> choice;
 		if (choice > options.size() || choice < 0) throw std::runtime_error("OUT OF BOUND");
+		std::cout << "Entering: " << choice << std::endl;
 		options[choice-1]->execute();
 	}while(current_option);
 }

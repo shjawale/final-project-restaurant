@@ -34,3 +34,41 @@ void Item::setPrice(double money)
 {
     price.setMoney(money);
 }
+
+std::string Item::getModification(int i)
+{
+    return modifications.at(i);
+}
+
+Item* Item::getItem(int i)
+{
+    return items.at(i);
+}
+
+int Item::getModSize()
+{
+    return modifications.size();
+}
+
+int Item::getItemSize()
+{
+    return items.size();
+}
+
+void Item::getDisplay()
+{
+    displayType->display(this);
+}
+
+double Item::getTotalPrice()
+{
+    double totalprice = 0.0;
+    if(items.size() > 0)
+    {
+        for (int i = 0; i < items.size(); i++)
+        {
+            totalprice += items.at(i)->getPrice().getRealMoney();
+        }
+    }
+    return totalprice;
+}
