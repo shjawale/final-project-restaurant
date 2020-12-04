@@ -8,7 +8,7 @@ INCLUDE_DIRECTORIES(googletest/include)
 
 SET(CMAKE_CXX_STANDARD 11)
 
-ADD_EXECUTABLE(example
+ADD_EXECUTABLE(example4
     example.cpp
     include/components/src/Menu.cpp
     # New classes added
@@ -21,6 +21,7 @@ ADD_EXECUTABLE(example
     include/components/src/OrderDisplay.cpp
     include/components/src/moneyclass.cpp
     include/windows/src/OrderWindow.cpp
+    include/src/SingleItemCreator.cpp
 )
 
 ADD_EXECUTABLE(restaurant
