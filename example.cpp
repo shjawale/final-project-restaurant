@@ -3,6 +3,7 @@
 #include "include/windows/headers/OrderWindow.hpp"
 #include "include/components/headers/OrderDisplay.hpp"
 #include "include/components/headers/order.h"
+#include "include/components/src/HelperFunctions.cpp"
 // The following code should be on a separate .hpp
 // I wrote it here for brevity
 
@@ -120,6 +121,7 @@ int main(){
     Chips Achip(1.25);
 
     Order* order = new Order("Order", new OrderDisplay());
+
 
     OrderMenu* makeOrder = new OrderMenu("Make an Plate", "items.txt", order);
     BasicNestedMenu menu("Chips Store");

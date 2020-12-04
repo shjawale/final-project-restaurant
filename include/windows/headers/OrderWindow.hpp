@@ -11,7 +11,6 @@
 #include <fstream>
 #include <map>
 #include <vector>
-#include <map>
 
 class OrderMenu : public BasicMenu
 {
@@ -23,7 +22,7 @@ class OrderMenu : public BasicMenu
         void printItems(std::string key);
         void initialize();
     public:
-        OrderMenu(const std::string& _title, std::string fileName, Order* order);
+        OrderMenu(const std::string& _title, const std::string& fileName, Order* order);
 
         void AddItem();
 

@@ -1,7 +1,10 @@
 
 #include "../headers/Item.h"
+#include "../../headers/SingleItemCreator.hpp"
+#include <fstream>
 #include <iostream>
 #include <iomanip>
+#include <map>
 
 static void printAtCenter(std::string name, char fill, int sizeSet)
 {

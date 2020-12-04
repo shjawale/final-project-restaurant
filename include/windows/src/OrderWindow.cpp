@@ -6,7 +6,7 @@
 #include "../../components/src/HelperFunctions.cpp"
 #include <string>
 
-OrderMenu::OrderMenu(const std::string& _title, std::string fileName, Order* order) : BasicMenu(_title)
+OrderMenu::OrderMenu(const std::string& _title, const std::string& fileName, Order* order) : BasicMenu(_title)
 {
     this->order = order;
     file = fileName;
@@ -43,7 +43,6 @@ void OrderMenu::initialize()
     {
         throw std::runtime_error("inFile Did Not Open");
     }
-    
 }
 
 void OrderMenu::printItems(std::string key)
