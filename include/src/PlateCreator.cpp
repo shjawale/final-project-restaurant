@@ -4,7 +4,7 @@
 #include "../headers/PlateCreator.hpp"
 #include <string>
 
-Item* PlateCreator::CreateItem(std::string name, MoneyClass price){
+Item* PlateCreator::CreateItem(std::string name, double price){
 	Item* item = new Plate();
 	item->setName(name);
 	item->setPrice(price);
