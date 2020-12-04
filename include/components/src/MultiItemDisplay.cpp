@@ -6,7 +6,7 @@
 
 void MultiDisplay::display(Item* i)
 {
-    std::cout << i->getName() << ": " << std::endl;
+    std::cout << std::right << i->getName() << std::setfill(' ') << ": " << std::endl;
     for(int j = 0; j < i->getItemSize(); j++)
     {
         std::cout << std::setw(10);
@@ -15,4 +15,5 @@ void MultiDisplay::display(Item* i)
     }
     std::string totalName = i->getName() + " Total";
     std::cout << std::left << std::setw(49) << std::setfill('-') << totalName << "$" << i->getTotalPrice() << std::endl << std::endl;
+    std::cout << std::setfill(' ');
 }

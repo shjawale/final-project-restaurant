@@ -1,4 +1,5 @@
 
+#include "../headers/Item.h"
 #include <iostream>
 #include <iomanip>
 
@@ -58,4 +59,23 @@ static void printAtCenterCont(std::string name, char fill, int sizeSet)
         right--;
     }
     //std::cout << std::endl;
+}
+
+static void printVector(std::vector<Item*> v)
+{
+    for (int i = 0; i < v.size(); i++)
+    {
+        std::cout << v.at(i)->getName() << ": " << v.at(i)->getPrice().getTotal() << "  ";
+    }
+}
+
+static int checkIntSelection(int i, int size)
+{
+    while(i >= size)
+    {
+        std::cout << "You have entered an incorrect choice, choose again: ";
+        std::cin >> i;
+        std::cin.clear();
+    }
+    return i;
 }

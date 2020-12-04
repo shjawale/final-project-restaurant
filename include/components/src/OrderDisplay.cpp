@@ -19,5 +19,5 @@ void OrderDisplay::display(Item* i)
     std::string endName = "End of " + i->getName();
     std::cout << std::left << std::setw(49) << std::setfill('-') << totalName << "$" << i->getTotalPrice() << std::endl;
     printAtCenter(endName, '-', 57);
-    //std::cout.flags( f );
+    std::cout << std::setfill(' ');
 }
