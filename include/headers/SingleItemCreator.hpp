@@ -8,6 +8,6 @@
 
 class SingleItemCreator : public ItemCreator{
 	public:
-		virtual Item* CreateItem(std::string name, MoneyClass price);
+		virtual Item* CreateItem(std::string name, double price);
 };
 #endif

@@ -8,6 +8,6 @@
 
 class ItemCreator{
 	public:
-		virtual Item* CreateItem(std::string name, MoneyClass price) = 0;
+		virtual Item* CreateItem(std::string name, double price) = 0;
 };
 #endif
