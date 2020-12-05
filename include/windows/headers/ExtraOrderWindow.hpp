@@ -1,5 +1,5 @@
-#ifndef EDITORDERWINDOW_HPP
-#define EDITORDERWINDOW_HPP
+#ifndef EXTRAORDERWINDOW_HPP
+#define EXTRAORDERWINDOW_HPP
 
 #include "../../components/headers/Menu.hpp"
 #include "../../components/headers/Utilities.hpp"
@@ -12,7 +12,7 @@
 #include <map>
 #include <vector>
 
-class EditMenu : public BasicMenu
+class ExtraMenu : public BasicMenu
 {
     private:
         std::map<std::string, std::vector<Item*>> choices;
@@ -21,17 +21,17 @@ class EditMenu : public BasicMenu
         SingleItemCreator c;
         void printItems(std::string key);
         void initialize();
-    
+
     public:
-        EditMenu(const std::string& _title, const std::string& fileName, Order* order);
+        ExtraMenu(const std::string& _title, const std::string& fileName, Order* order);
 
-        void AddItem();
+        void AddDrink();
+        
+        void AddSide();
 
-        void RemoveItem();
+        void AddDesert();
 
-        void AddMod();
-
-        void RemoveMod();
+        void AddSauce();
 
         void Exit();
 };
