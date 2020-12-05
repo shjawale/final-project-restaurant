@@ -43,6 +43,17 @@ ADD_EXECUTABLE( displayTestTwo
     include/components/src/HelperFunctions.cpp
 )
 
+ADD_EXECUTABLE( CreatorTests
+    tests/CreatorClass.cpp 
+    include/components/src/ItemCreator.cpp
+    include/components/src/item.cpp
+    include/components/src/SingleItem.cpp
+    include/components/src/plate.cpp
+    include/components/src/MultiItemDisplay.cpp
+    include/components/src/SingleItemDisplay.cpp
+    include/components/src/moneyclass.cpp
+)
 
+TARGET_LINK_LIBRARIES(CreatorTests gtest)
 TARGET_LINK_LIBRARIES(unit_tests gtest)
 TARGET_COMPILE_DEFINITIONS(unit_tests PRIVATE gtest_disable_pthreads=ON)
