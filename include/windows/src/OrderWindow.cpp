@@ -5,6 +5,7 @@
 #include "../../components/headers/OrderDisplay.hpp"
 #include "../../components/src/HelperFunctions.cpp"
 #include <string>
+#include<limits>
 
 OrderMenu::OrderMenu(const std::string& _title, const std::string& fileName, Order* order) : BasicMenu(_title)
 {
@@ -70,21 +71,38 @@ void OrderMenu::printItems(std::string key)
 void OrderMenu::AddItem()
 {
     printItems("mixed");
+    std::string c, n;
     Plate* test = new Plate("Plate", new MultiDisplay());
     std::cin.ignore();
     std::cout << std::endl << std::endl << "Choose an Item for your plate: ";
-    int i;
-    std::cin >> i;
-    //std::cin.clear();
-    while(i >= choices.find("mixed")->second.size())
+    std::cin >> n;
+
+    //Check user input
+    while(1)
     {
-        std::cout << "You have entered an incorrect choice, choose again: ";
-        std::cin >> i;
-        std::cin.clear();
+        if (checkIfNum(n))
+        {
+            if (std::stoi(n) < choices.find("mixed")->second.size())
+            {
+                break;
+            }
+            else
+            {
+                std::cout << "You have entered an incorrect choice, choose again: ";
+                std::cin >> n;
+                std::cin.clear();
+            } 
+        }
+        else
+        {
+            std::cout << "You have entered an incorrect value, choose again: ";
+            std::cin >> n;
+            std::cin.clear();
+        }
     }
+
     std::cin.clear();
-    test->addItem(choices.find("mixed")->second.at(i));
-    std::string c;
+    test->addItem(choices.find("mixed")->second.at(std::stoi(n)));
     bool cont = false;
      while (!cont)
     {
@@ -94,16 +112,32 @@ void OrderMenu::AddItem()
         if (c != "n")
         {
             std::cout << "Choose an Item for your plate: ";
-            std::cin >> i;
-            //std::cin.clear();
-            while(i >= choices.find("mixed")->second.size())
+            std::cin >> n;
+            
+            while(1)
             {
-                std::cout << "You have entered an incorrect choice, choose again: ";
-                std::cin >> i;
-                std::cin.clear();
+                if (checkIfNum(n))
+                {
+                    if (std::stoi(n) < choices.find("mixed")->second.size())
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        std::cout << "You have entered an incorrect choice, choose again: ";
+                        std::cin >> n;
+                        std::cin.clear();
+                    } 
+                }
+                else
+                {
+                    std::cout << "You have entered an incorrect value, choose again: ";
+                    std::cin >> n;
+                    std::cin.clear();
+                }
             }
             std::cin.clear();
-            test->addItem(choices.find("mixed")->second.at(i));
+            test->addItem(choices.find("mixed")->second.at(std::stoi(n)));
         }
         else
         {
@@ -125,18 +159,36 @@ void OrderMenu::RemoveItem()
     else
     {
         std::cout << std::endl << std::endl << "Choose a plate to remove: ";
-        int i;
-        std::cin >> i;
-        i -= 1;
-        while (i > order->getItemSize())
+        std::string n;
+        std::cin >> n;
+        //i -= 1;
+
+        while(1)
         {
-            std::cout << "You have entered an incorrect choice, choose again: ";
-            std::cin >> i;
-            i -= 1;
-            std::cin.clear();
+            if (checkIfNum(n))
+            {
+                if ((std::stoi(n) - 1) < choices.find("mixed")->second.size())
+                {
+                    break;
+                }
+                else
+                {
+                    std::cout << "You have entered an incorrect choice, choose again: ";
+                    std::cin >> n;
+                    std::cin.clear();
+                } 
+            }
+            else
+            {
+                std::cout << "You have entered an incorrect value, choose again: ";
+                std::cin >> n;
+                std::cin.clear();
+            }
         }
+
+
         std::cin.clear();
-        order->removePlate(i);
+        order->removePlate((std::stoi(n) - 1));
         order->getDisplay();
     }
     
