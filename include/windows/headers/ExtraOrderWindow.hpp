@@ -33,6 +33,8 @@ class ExtraMenu : public BasicMenu
 
         void AddSauce();
 
+        void RemoveItem();
+
         void Exit();
 };
 

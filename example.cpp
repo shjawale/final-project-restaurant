@@ -1,6 +1,7 @@
 
 #include "include/components/headers/Menu.hpp"
 #include "include/windows/headers/OrderWindow.hpp"
+#include "include/windows/headers/ExtraOrderWindow.hpp"
 #include "include/components/headers/OrderDisplay.hpp"
 #include "include/components/headers/order.h"
 #include "include/components/src/HelperFunctions.cpp"
@@ -124,10 +125,14 @@ int main(){
 
 
     OrderMenu* makeOrder = new OrderMenu("Make an Plate", "items.txt", order);
+
+    ExtraMenu* extraOrder = new ExtraMenu("Add a Miscellaneous Item", "items.txt", order);
+
     BasicNestedMenu menu("Chips Store");
     menu.addWindow(new SmoothieMenu("Smoothies", &Asmoothie));
     menu.addWindow(new ChipsMenu("Chips", &Achip));
     menu.addWindow(makeOrder);
+    menu.addWindow(extraOrder);
 
     menu.execute();
     return 0;

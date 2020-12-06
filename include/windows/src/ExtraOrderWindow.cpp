@@ -1,24 +1,27 @@
 
-#include "../headers/OrderWindow.hpp"
+
+#include "../headers/ExtraOrderWindow.hpp"
 #include "../../components/headers/SingleItemDisplay.hpp"
 #include "../../components/headers/MultiItemDisplay.hpp"
 #include "../../components/headers/OrderDisplay.hpp"
 #include "../../components/src/HelperFunctions.cpp"
 #include <string>
-#include <limits>
 
-OrderMenu::OrderMenu(const std::string& _title, const std::string& fileName, Order* order) : BasicMenu(_title)
+ExtraMenu::ExtraMenu(const std::string& _title, const std::string& fileName, Order* order) : BasicMenu(_title)
 {
     this->order = order;
     file = fileName;
-    addOption(new BasicMenuOption("Make a Plate", [this](){AddItem();}));
-    addOption(new BasicMenuOption("Remove a Plate", [this](){RemoveItem();}));
+    addOption(new BasicMenuOption("Add a Drink", [this](){AddDrink();}));
+    addOption(new BasicMenuOption("Add a Side", [this](){AddSide();}));
+    addOption(new BasicMenuOption("Add a Dessert", [this](){AddDesert();}));
+    addOption(new BasicMenuOption("Add a Sauce", [this](){AddSauce();}));
+    addOption(new BasicMenuOption("Remove an Item or Plate", [this](){RemoveItem();}));
     addOption(new BasicMenuOption("Return", [this](){Exit();}));
 
     this->initialize();
 }
 
-void OrderMenu::initialize()
+void ExtraMenu::initialize()
 {
     bool inMap = false;
     std::ifstream inFile(file);
@@ -46,7 +49,7 @@ void OrderMenu::initialize()
     }
 }
 
-void OrderMenu::printItems(std::string key)
+void ExtraMenu::printItems(std::string key)
 { 
     std::cout << std::endl << "Items: " << std::endl << "Name:   " << " | ";
     for(int i = 0; i < choices.find(key)->second.size(); i++)
@@ -68,42 +71,64 @@ void OrderMenu::printItems(std::string key)
     std::cout << std::endl;
 }
 
-void OrderMenu::AddItem()
+
+void ExtraMenu::AddDrink()
 {
-    printItems("mixed");
+    printItems("drink");
     std::string c, n;
-    Plate* test = new Plate("Plate", new MultiDisplay());
     std::cin.ignore();
-    std::cout << std::endl << std::endl << "Choose an Item for your plate: ";
+    std::cout << std::endl << std::endl << "Choose a drink for your order: ";
     std::cin >> n;
 
     std::cin.clear();
-    test->addItem(choices.find("mixed")->second.at(std::stoi(checkUserInput(n, choices, "mixed"))));
-    bool cont = false;
-     while (!cont)
-    {
-        std::cout << "Do you want to add another Item for the plate (y/n): ";
-        std::cin >> c;
-        std::cin.clear();
-        if (c != "n")
-        {
-            std::cout << "Choose an Item for your plate: ";
-            std::cin >> n;
-            
-            std::cin.clear();
-            test->addItem(choices.find("mixed")->second.at(std::stoi(checkUserInput(n, choices, "mixed"))));
-        }
-        else
-        {
-            cont = true;
-        }
-        
-    }
-    order->addPlate(test);
+    order->addPlate(choices.find("drink")->second.at(std::stoi(checkUserInput(n, choices, "drink"))));
+    std::cout << std::endl;
     order->getDisplay();
 }
 
-void OrderMenu::RemoveItem()
+void ExtraMenu::AddSide()
+{
+    printItems("side");
+    std::string c, n;
+    std::cin.ignore();
+    std::cout << std::endl << std::endl << "Choose a side for your order: ";
+    std::cin >> n;
+
+    std::cin.clear();
+    order->addPlate(choices.find("side")->second.at(std::stoi(checkUserInput(n, choices, "side"))));
+    std::cout << std::endl;
+    order->getDisplay();
+}
+
+void ExtraMenu::AddDesert()
+{
+    printItems("dessert");
+    std::string c, n;
+    std::cin.ignore();
+    std::cout << std::endl << std::endl << "Choose a dessert for your order: ";
+    std::cin >> n;
+
+    std::cin.clear();
+    order->addPlate(choices.find("dessert")->second.at(std::stoi(checkUserInput(n, choices, "dessert"))));
+    std::cout << std::endl;
+    order->getDisplay();
+}
+
+void ExtraMenu::AddSauce()
+{
+    printItems("sauce");
+    std::string c, n;
+    std::cin.ignore();
+    std::cout << std::endl << std::endl << "Choose a sauce for your order: ";
+    std::cin >> n;
+
+    std::cin.clear();
+    order->addPlate(choices.find("sauce")->second.at(std::stoi(checkUserInput(n, choices, "sauce"))));
+    std::cout << std::endl;
+    order->getDisplay();
+}
+
+void ExtraMenu::RemoveItem()
 {
     std::cin.ignore();
     if (order->getItemSize() == 0)
@@ -112,7 +137,7 @@ void OrderMenu::RemoveItem()
     }
     else
     {
-        std::cout << std::endl << std::endl << "Choose a plate to remove: ";
+        std::cout << std::endl << std::endl << "Choose an Item to remove: ";
         std::string n;
         std::cin >> n;
 
@@ -120,10 +145,9 @@ void OrderMenu::RemoveItem()
         order->removePlate((std::stoi(checkUserInput(n, order->getItemSize())) - 1));
         order->getDisplay();
     }
-    
 }
 
-void OrderMenu::Exit()
+void ExtraMenu::Exit()
 {
     current_option = nullptr;
 }
