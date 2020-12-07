@@ -16,13 +16,13 @@ class OrderMenu : public BasicMenu
 {
     private:
         std::map<std::string, std::vector<Item*>> choices;
-        Order* order;
+        std::vector<Order*>* orders;
         std::string file;
         ItemCreator c;
         void printItems(std::string key);
         void initialize();
     public:
-        OrderMenu(const std::string& _title, const std::string& fileName, Order* order);
+        OrderMenu(const std::string& _title, const std::string& fileName, std::vector<Order*>* orders);
 
         void AddItem();
 

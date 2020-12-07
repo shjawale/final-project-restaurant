@@ -7,9 +7,9 @@
 #include <string>
 #include <limits>
 
-OrderMenu::OrderMenu(const std::string& _title, const std::string& fileName, Order* order) : BasicMenu(_title)
+OrderMenu::OrderMenu(const std::string& _title, const std::string& fileName, std::vector<Order*>* orders) : BasicMenu(_title)
 {
-    this->order = order;
+    this->orders = orders;
     file = fileName;
     addOption(new BasicMenuOption("Make a Plate", [this](){AddItem();}));
     addOption(new BasicMenuOption("Remove a Plate", [this](){RemoveItem();}));
@@ -20,6 +20,7 @@ OrderMenu::OrderMenu(const std::string& _title, const std::string& fileName, Ord
 
 void OrderMenu::initialize()
 {
+    orders->push_back(new Order(std::to_string(orders->size() + 1), new OrderDisplay()));
     bool inMap = false;
     std::ifstream inFile(file);
     if (inFile.is_open())
@@ -65,7 +66,7 @@ void OrderMenu::printItems(std::string key)
         printAtCenterCont(std::to_string(i), ' ', choices.find(key)->second.at(i)->getName().size());
         std::cout << " | ";
     }
-    std::cout << std::endl;
+    std::cout << "\n";
 }
 
 void OrderMenu::AddItem()
@@ -74,23 +75,20 @@ void OrderMenu::AddItem()
     std::string c, n;
     Plate* test = new Plate("Plate", new MultiDisplay());
     std::cin.ignore();
-    std::cout << std::endl << std::endl << "Choose an Item for your plate: ";
+    std::cout << "\n\nChoose an Item for your plate: ";
     std::cin >> n;
 
-    std::cin.clear();
     test->addItem(choices.find("mixed")->second.at(std::stoi(checkUserInput(n, choices, "mixed"))));
     bool cont = false;
      while (!cont)
     {
         std::cout << "Do you want to add another Item for the plate (y/n): ";
         std::cin >> c;
-        std::cin.clear();
         if (c != "n")
         {
             std::cout << "Choose an Item for your plate: ";
             std::cin >> n;
             
-            std::cin.clear();
             test->addItem(choices.find("mixed")->second.at(std::stoi(checkUserInput(n, choices, "mixed"))));
         }
         else
@@ -99,14 +97,14 @@ void OrderMenu::AddItem()
         }
         
     }
-    order->addPlate(test);
-    order->getDisplay();
+    orders->back()->addPlate(test);
+    orders->back()->getDisplay();
 }
 
 void OrderMenu::RemoveItem()
 {
     std::cin.ignore();
-    if (order->getItemSize() == 0)
+    if (orders->back()->getItemSize() == 0)
     {
         std::cout << "No Plate to Remove." << std::endl;
     }
@@ -117,8 +115,8 @@ void OrderMenu::RemoveItem()
         std::cin >> n;
 
         std::cin.clear();
-        order->removePlate((std::stoi(checkUserInput(n, order->getItemSize())) - 1));
-        order->getDisplay();
+        orders->back()->removePlate((std::stoi(checkUserInput(n, orders->back()->getItemSize())) - 1));
+        orders->back()->getDisplay();
     }
     
 }

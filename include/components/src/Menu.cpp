@@ -27,7 +27,7 @@ std::string BasicMenu::get_title(){
 }
 
 void BasicMenu::display(){
-	std::cout << std::setfill('-') << std::setw(SEPARATOR_LENGTH) << "\n\n";
+	std::cout << std::setfill('-') << std::setw(SEPARATOR_LENGTH) << '-' << "\n\n";
 	std::cout << std::setfill(' ');
 
 	std::cout << menu_title << "\n\n";
@@ -65,7 +65,7 @@ void BasicMenu::removeOption(int index){
 BasicNestedMenu::BasicNestedMenu(const std::string& _title): window_title(_title){}
 
 void BasicNestedMenu::display(){
-	std::cout << std::setfill('=') << std::setw(SEPARATOR_LENGTH) << "\n\n";
+	std::cout << std::setfill('=') << std::setw(SEPARATOR_LENGTH) << '=' << "\n\n";
 	std::cout << std::setfill(' ');
 
 	std::cout << window_title << "\n\n";

@@ -3,34 +3,9 @@
 Application::Application(){
     menu = new BasicNestedMenu("RESTAURANT");
     menu->addWindow(login);
+    menu->addWindow(new OrderMenu("MAKE ORDER", "../files/items.txt", &orders));
+    menu->addWindow(new ExtraMenu("EXTRA", "../files/items.txt", &orders));
     menu->addWindow(new CheckoutWindow("CHECKOUT", &orders, &balance));
-
-    //========= Making and order manually ========================
-    SingleItemDisplay* displayTest = new SingleItemDisplay();
-    SingleItem* testItem = new SingleItem("Cheese", displayTest, 12.36);
-    testItem->addModifications("Extra Cheese");
-    SingleItem* testItem2 = new SingleItem("Olive", displayTest, 18.49);
-
-    //testItem->getDisplay();
-
-    std::cout << std::endl << std::endl;
-
-    MultiDisplay* multiDisplayTest = new MultiDisplay();
-    Plate* testPlate = new Plate("Cheese dish", multiDisplayTest);
-    testPlate->addItem(testItem);
-    testPlate->addItem(testItem2);
-
-    //testPlate->getDisplay();
-
-    OrderDisplay* orderDisplayTest = new OrderDisplay();
-    Order* testOrder = new Order("Order", orderDisplayTest);
-    testOrder->addPlate(testPlate);
-    testOrder->addPlate(testPlate);
-    testOrder->addPlate(testItem);
-    testOrder->addPlate(testPlate);
-//============ End of order ===============================================
-
-    orders.push_back(testOrder);
 }
 
 void Application::run(){
@@ -52,7 +27,12 @@ void Application::run(){
         std::cin >> window;
         if(std::cin.fail()){is_done = true;}
         else{
-            menu->switchWindow(window - 1);
+            if(login->get_user()){      //user is not nullptr, hence it exists
+                menu->switchWindow(window - 1);
+            }
+            else{
+                std::cout << "Please enter a valid user.\n\n";
+            }
         }
     }while(!is_done);
 }

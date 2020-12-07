@@ -38,6 +38,8 @@ void CheckoutWindow::pay(){
 
     std::cout << "Change: $" << payment.getRealMoney() << "\n\n";
     std::cout << "\n\n";
+
+    orders->push_back(new Order(std::to_string(orders->size() + 1), new OrderDisplay()));
 }
 
 

@@ -2,6 +2,7 @@
 
 #include "../../components/headers/Menu.hpp"
 #include "../../components/headers/order.h"
+#include "../../components/headers/OrderDisplay.hpp"
 #include "../../components/headers/Utilities.hpp"
 
 class Order;
