@@ -8,10 +8,10 @@ class Order;
 
 class ManagerWindow : public BasicMenu{
 private:
-	Order* _currentOrder;
+	std::vector<Order*>* orders;
 	double _totalCost;
 public:
-	ManagerWindow(const std::string& title, const std::string& fileName, Order* order, std::vector<Order*>* orders);
+	ManagerWindow(const std::string& title, const std::string& fileName, std::vector<Order*>* orders);
 	void PrintMenu();
 	void Exit();	
 };
