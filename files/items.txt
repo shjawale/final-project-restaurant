@@ -1,0 +1,15 @@
+mixed cheese 10.50
+mixed olives 5.78
+mixed rice 1.78
+drink milk 6.98
+drink water 0.00
+drink lemonade 6.50
+drink beer 7.50
+drink Soda 3.40
+side fries 5.60
+side Mac_and_cheese 6.70
+side Hash_Browns 4.56
+side Chow_mein 7.89
+dessert Cheesecake 10.70
+dessert Apple_pie 12.34
+sauce _Soy_ 1.45
