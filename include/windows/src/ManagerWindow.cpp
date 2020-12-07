@@ -8,7 +8,7 @@
 #include <fstream>
 #include <iostream>
 
-ManagerWindow::ManagerWindow(const std::string& title, const std::string& fileName, Order* order) : BasicMenu(title) {
+ManagerWindow::ManagerWindow(const std::string& title, const std::string& fileName, Order* order, std::vector<Order*>* ordervector): BasicMenu(title) {
 	_currentOrder = order;
 	_totalCost = 0;
 
@@ -16,15 +16,14 @@ ManagerWindow::ManagerWindow(const std::string& title, const std::string& fileNa
     addOption(new BasicMenuOption("Return", [this](){Exit();}));
 }
 
-void ManagerWindow::PrintMenu(){ 
+void ManagerWindow::PrintMenu(std::vector<Order*>* today){ 
 	_currentOrder->getDisplay();
-	std::vector<Order*> today = getTodaysOrders();
 	std::string lineacross = "-----------------------------";
 
 	for (int i = 0; i < today.size(); i++){
-		std::cout << today.at(i)->getName() << lineacross << today.at(i)->getTotalPrice() << "\n\n";
+		std::cout << today[i]->getName() << lineacross << today.at[i]->getTotalPrice() << "\n\n";
 
-		_totalCost += today.at(i)->getTotalPrice();
+		_totalCost += today[i]->getTotalPrice();
 	}
 	std::cout << "Today's total" << lineacross << _totalCost << std::endl;
 }

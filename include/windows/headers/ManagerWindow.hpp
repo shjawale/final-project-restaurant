@@ -11,7 +11,7 @@ private:
 	Order* _currentOrder;
 	double _totalCost;
 public:
-	ManagerWindow(const std::string& title, const std::string& fileName, Order* order);
+	ManagerWindow(const std::string& title, const std::string& fileName, Order* order, std::vector<Order*>* orders);
 	void PrintMenu();
 	void Exit();	
 };
