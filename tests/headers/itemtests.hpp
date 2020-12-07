@@ -3,7 +3,7 @@
 #define ITEMTESTS_HPP
 
 #include <gtest/gtest.h>
-#include "../components/headers/Item.h"
+#include "../../include/components/headers/Item.h"
 
 class TestItem : public ::testing::Test
 {
