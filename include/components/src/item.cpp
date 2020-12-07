@@ -15,9 +15,14 @@ Item::Item(std::string name, IDisplayBehavior* displayType)
     this->displayType = displayType;
 }
 
+void Item::setPrice(MoneyClass price)
+{
+	this->price = price;
+}
+
 MoneyClass Item::getPrice()
 {
-    return price;
+	return price;
 }
 
 void Item::setName(std::string name)
@@ -30,7 +35,7 @@ std::string Item::getName()
     return name;
 }
 
-void Item::setPrice(double money)
+void Item::setTotalPrice(double money)
 {
     price.setMoney(money);
 }
@@ -72,3 +77,4 @@ double Item::getTotalPrice()
     }
     return totalprice;
 }
+

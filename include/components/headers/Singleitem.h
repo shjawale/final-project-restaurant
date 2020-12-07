@@ -10,6 +10,7 @@ class SingleItem : public Item
 {   
     public:
         SingleItem();
+        SingleItem(std::string name, IDisplayBehavior* displayType);
         SingleItem(std::string name, IDisplayBehavior* displayType, double money);
         void addModifications(std::string mod);
         void removeModifications(std::string mod);

@@ -9,6 +9,19 @@ SET(CMAKE_CXX_STANDARD 11)
 ADD_EXECUTABLE(example
     example.cpp
     include/components/src/Menu.cpp
+    # New classes added
+    include/components/src/item.cpp
+    include/components/src/SingleItem.cpp
+    include/components/src/plate.cpp
+    include/components/src/order.cpp
+    include/components/src/SingleItemDisplay.cpp
+    include/components/src/MultiItemDisplay.cpp
+    include/components/src/OrderDisplay.cpp
+    include/components/src/moneyclass.cpp
+    include/windows/src/OrderWindow.cpp
+    include/windows/src/ExtraOrderWindow.cpp
+    include/windows/src/EditOrderWindow.cpp
+    include/components/src/ItemCreator.cpp
 )
 
 ADD_EXECUTABLE(restaurant
@@ -53,6 +66,17 @@ ADD_EXECUTABLE( displayTestTwo
     include/components/src/HelperFunctions.cpp
 )
 
+ADD_EXECUTABLE( CreatorTests
+    tests/CreatorClass.cpp 
+    include/components/src/ItemCreator.cpp
+    include/components/src/item.cpp
+    include/components/src/SingleItem.cpp
+    include/components/src/plate.cpp
+    include/components/src/MultiItemDisplay.cpp
+    include/components/src/SingleItemDisplay.cpp
+    include/components/src/moneyclass.cpp
+)
 
+TARGET_LINK_LIBRARIES(CreatorTests gtest)
 TARGET_LINK_LIBRARIES(unit_tests gtest)
 TARGET_COMPILE_DEFINITIONS(unit_tests PRIVATE gtest_disable_pthreads=ON)

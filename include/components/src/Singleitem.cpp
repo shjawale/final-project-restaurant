@@ -1,8 +1,11 @@
-#include "../headers/Singleitem.h"
-#include <iostream>
+#include "../headers/SingleItem.h"
 
-SingleItem::SingleItem() : Item()
+SingleItem::SingleItem() : Item() {}
+
+SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType)
 {
+    this->name = name;
+    this->displayType = displayType;
     price.setMoney(0.0);
 }
 

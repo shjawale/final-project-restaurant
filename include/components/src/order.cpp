@@ -7,6 +7,7 @@ Order::Order(std::string name, IDisplayBehavior* displayType)
 {
     this->name = name;
     this->displayType = displayType;
+    price.setMoney(0.0);
 }
 
 void Order::addPlate(Item* item)
@@ -15,14 +16,8 @@ void Order::addPlate(Item* item)
     price.addMoney(item->getPrice().getRealMoney());
 }
 
-void Order::removePlate(Item* item)
+void Order::removePlate(int i)
 {
-    for (int i = 0; i < items.size(); i++)
-    {
-        if (items.at(i) == item)
-        {
-            items.erase(items.begin() + i);
-            price.subMoney(item->getPrice().getRealMoney());
-        }
-    }
+    price.subMoney(items.at(i)->getPrice().getRealMoney());
+    items.erase(items.begin() + i);
 }
