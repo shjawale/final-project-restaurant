@@ -1,22 +1,23 @@
 #include "../headers/ItemCreator.hpp"
 #include "../headers/Item.h"
-#include "../headers/moneyclass.h"
+#include "../headers/plate.h"
+#include "../headers/SingleItem.hpp"
+#include "../headers/MultiItemDisplay.hpp"
+#include "../headers/SingleItemDisplay.hpp"
 #include <string>
 
-Item* ItemCreator::CreateItem(ItemType TypeId, std::string name, MoneyClass price, std::vector<std::string> modification){
-	if(TypeId == PLATE_ITEM_T){
-		Item* item = new Plate();
-		item->setName(name);
-		item->setPrice(price);
-		item->setModifications(modification);
-		return item;
-	}
-
-	if(TypeId == SINGLE_ITEM_T){
-	    Item* item = new SingleItem();
-        item->setName(name);
+Item* ItemCreator::CreateItem(ItemType TypeId, std::string name, MoneyClass price){
+    if(TypeId == PLATE_ITEM_T){
+        MultiDisplay* multDisp = new MultiDisplay();
+        Plate* item = new Plate(name, multDisp);
         item->setPrice(price);
-        item->setModifications(modification);
+        return item;
+    }
+
+    if(TypeId == SINGLE_ITEM_T){
+        SingleItemDisplay* singDisp = new SingleItemDisplay();
+        SingleItem* item = new SingleItem(name, singDisp);
+        item->setPrice(price);
         return item;
     }
 }

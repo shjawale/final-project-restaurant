@@ -2,7 +2,7 @@
 #define MONEYCLASSTESTS_H
 
 #include <gtest/gtest.h>
-#include "../components/headers/moneyclass.h"
+#include "../../include/components/headers/moneyclass.h"
 
 TEST(MoneyclassTest, GetDollarTest)
 {
