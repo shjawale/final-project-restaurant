@@ -12,7 +12,7 @@ class Plate : public Item
         Plate();
         Plate(std::string name, IDisplayBehavior* displayType);
         void addItem(Item* item);
-        void removeItem(Item* item);
+        void removeItem(int i);
 
 };
 

@@ -3,7 +3,7 @@
 #include "../headers/ItemCreator.hpp"
 #include <string>
 
-Item* ItemCreator::CreateItem(std::string name, MoneyClass price){
+Item* ItemCreator::CreateItem(std::string name, double price){
 	Item* item = new Item();
 	item->setName(name);
 	item->setPrice(price);

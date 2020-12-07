@@ -1,12 +1,13 @@
 #include "../headers/ItemCreator.hpp"
 #include "../headers/Item.h"
 #include "../headers/plate.h"
-#include "../headers/SingleItem.hpp"
+#include "../headers/SingleItem.h"
 #include "../headers/MultiItemDisplay.hpp"
 #include "../headers/SingleItemDisplay.hpp"
 #include <string>
 
-Item* ItemCreator::CreateItem(ItemType TypeId, std::string name, MoneyClass price){
+
+Item* ItemCreator::CreateItem(ItemType TypeId, std::string name, double price){
     if(TypeId == PLATE_ITEM_T){
         MultiDisplay* multDisp = new MultiDisplay();
         Plate* item = new Plate(name, multDisp);
@@ -21,4 +22,5 @@ Item* ItemCreator::CreateItem(ItemType TypeId, std::string name, MoneyClass pric
         return item;
     }
 }
+
 
