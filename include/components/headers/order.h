@@ -12,7 +12,7 @@ class Order : public Item
         Order();
         Order(std::string name, IDisplayBehavior* displayType);
         void addPlate(Item* item);
-        void removePlate(int i);
+        void removePlate(Item* item);
 };
 
 #endif

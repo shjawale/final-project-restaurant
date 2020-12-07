@@ -16,8 +16,14 @@ void Order::addPlate(Item* item)
     price.addMoney(item->getPrice().getRealMoney());
 }
 
-void Order::removePlate(int i)
+void Order::removePlate(Item* item)
 {
-    price.subMoney(items.at(i)->getPrice().getRealMoney());
-    items.erase(items.begin() + i);
+    for (int i = 0; i < items.size(); i++)
+    {
+        if (items.at(i) == item)
+        {
+            items.erase(items.begin() + i);
+            price.subMoney(item->getPrice().getRealMoney());
+        }
+    }
 }
