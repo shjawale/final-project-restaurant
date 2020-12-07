@@ -33,6 +33,11 @@ class Item
         double getTotalPrice();
         std::string displayItem();
 		void setPrice(MoneyClass price);
+        // virtual void addPlate(Item* item);
+        // virtual void addItem(Item* item);
+        // virtual void addModifications(std::string mod);
+        // virtual void removeItem(int i);
+        // virtual void removeModifications(int i);
 };
 
 #endif

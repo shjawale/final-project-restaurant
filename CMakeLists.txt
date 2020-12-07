@@ -22,6 +22,7 @@ ADD_EXECUTABLE(example
     include/components/src/moneyclass.cpp
     include/windows/src/OrderWindow.cpp
     include/windows/src/ExtraOrderWindow.cpp
+    include/windows/src/EditOrderWindow.cpp
     include/src/SingleItemCreator.cpp
 )
 

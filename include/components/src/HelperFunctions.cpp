@@ -127,7 +127,7 @@ static std::string checkUserInput(std::string input, int size)
     {
         if (checkIfNum(input))
         {
-            if ((std::stoi(input) <= size) && (std::stoi(input) != 0))
+            if ((std::stoi(input) <= size) && ((std::stoi(input) != 0)))
             {
                 return input;
             }
