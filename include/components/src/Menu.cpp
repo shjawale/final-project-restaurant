@@ -13,6 +13,10 @@ void BasicMenuOption::execute() {
 	action();
 }
 
+std::string BasicMenuOption::get_title(){
+	return label;
+}
+
 //============ BasicMenu ====================
 
 BasicMenu::BasicMenu(const std::string& _title): menu_title(_title){}
@@ -35,20 +39,19 @@ void BasicMenu::display(){
 	std::cout << "\n\n";
 }
 
-void BasicMenu::execute(){
-	current_option = options[0];
-	do{
-		display();
-		std::cout << "Enter choice: ";
-		int choice;
-		std::cin >> choice;
-		if (choice > options.size() || choice < 0) throw std::runtime_error("OUT OF BOUND");
-		std::cout << "Entering: " << choice << std::endl;
-		options[choice-1]->execute();
-	}while(current_option);
+Menu* BasicMenu::get_current(){
+	return current_option;
 }
 
-void BasicMenu::addOption(BasicMenuOption* _option){
+void BasicMenu::switch_options(int index){
+	current_option = options[index];
+}
+
+void BasicMenu::execute(){
+	current_option->execute();
+}
+
+void BasicMenu::addOption(Menu* _option){
 	options.push_back(_option);
 }
 
@@ -80,35 +83,26 @@ void BasicNestedMenu::display(){
 	std::cout << "\n\n";
 }
 
-void BasicNestedMenu::switchWindow(){
-	display();
-	std::cout << "Enter Q to quit\nEnter window: ";
-	int temp;
-	std::cin >> temp;
-	if(std::cin.fail()){
-		current_window = nullptr;
-		std::cout << "Closing Program...\n";
-		return;
-	}
-	if(temp > windows.size() || temp < 0){
-		throw std::runtime_error("OUT OF BOUND");
-	}
+std::string BasicNestedMenu::get_title(){
+	return window_title;
+}
 
-	current_window = windows[temp-1];
+void BasicNestedMenu::switchWindow(int index){
+	current_window = windows[index];
 }
 
 
 void BasicNestedMenu::execute(){
-	current_window = windows[0];
-	do{
-		display();
-		current_window->execute();
-		switchWindow();
-	}while(current_window);
+	current_window->execute();
 }
 void BasicNestedMenu::addWindow(BasicMenu* _window){
 	windows.push_back(_window);
 }
+
+BasicMenu* BasicNestedMenu::get_current(){
+	return current_window;
+}
+
 void BasicNestedMenu::removeWindow(int index){
 	windows.erase(windows.begin() + index);
 }

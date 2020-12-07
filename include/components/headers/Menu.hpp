@@ -10,15 +10,17 @@
 // Component
 class Menu {
 public:
+	//virtual ~Menu();
 	virtual void display() = 0;
+	virtual std::string get_title() = 0;
 	virtual void execute() = 0;
 };
 
 
 //================ Leafs ==============================================
 /*
-BasicMenuOption is a single option on a menu, it has a display() method and 
-and execute() method.
+	BasicMenuOption is a single option on a menu, it has a display() method and 
+	and execute() method.
 */
 class BasicMenuOption : public Menu {
 protected:
@@ -30,6 +32,8 @@ public:
 	void display();
 
 	void execute();
+
+	std::string get_title();
 };
 
 
@@ -37,47 +41,57 @@ public:
 //===================== Composites =====================================
 
 /*
-Basic Menu is a single screen menu. It can contain BasicMenuOptions but not 
-BasicNestedMenu objects.
+	Basic Menu is a single screen menu. It can contain BasicMenuOptions but not 
+	BasicNestedMenu objects.
 */
 class BasicMenu: public Menu{
 protected:
 	std::string menu_title;
-	std::vector<BasicMenuOption*> options;
+	std::vector<Menu*> options;
 	Menu* current_option;
 public:
 	BasicMenu(const std::string& _title);
 
 	std::string get_title();
 
-	void display();
+	virtual void display();
+
+	void switch_options(int index);
 
 	void execute();
 
-	void addOption(BasicMenuOption* _option);
+	void addOption(Menu* _option);
+
+	Menu* get_current();
 
 	void removeOption(int index);
 };
 
+
 /*
-BasicestedMenu is a multi-screen menu, It can contain menu BasicMenu objects, locally
-called windows.
+	BasicestedMenu is a multi-screen menu, It can contain menu BasicMenu objects, locally
+	called windows.
 */
 
 class BasicNestedMenu: public Menu{
 protected:
 	std::string window_title;
 	std::vector<BasicMenu*> windows;
-	Menu* current_window;
-	void switchWindow();
+	BasicMenu* current_window;
 public:
 	BasicNestedMenu(const std::string& _title);
 
-	virtual void display();
+	void display();
+
+	std::string get_title();
 
 	void execute();
 
+	void switchWindow(int index);
+
 	void addWindow(BasicMenu* _window);
+
+	BasicMenu* get_current();
 
 	void removeWindow(int index);
 };

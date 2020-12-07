@@ -2,14 +2,16 @@
 
 #include "../../components/headers/Menu.hpp"
 #include "../../components/headers/order.h"
+#include "../../components/headers/Utilities.hpp"
 
 class Order;
 
 class CheckoutWindow: public BasicMenu{
 private:
-    Order* current_order;
+    std::vector<Order*>* orders;
+    MoneyClass* balance;
 public:
-    CheckoutWindow(const std::string& _title, Order* _order);
+    CheckoutWindow(const std::string& _title, std::vector<Order*>* _orders, MoneyClass* _balance);
 
     void display();
 

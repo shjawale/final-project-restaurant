@@ -27,6 +27,8 @@ ADD_EXECUTABLE(restaurant
     include/components/src/order.cpp
     include/components/src/OrderDisplay.cpp
     include/components/src/HelperFunctions.cpp
+
+    include/drivers/src/Application.cpp
 )
 
 ADD_EXECUTABLE(unit_tests
