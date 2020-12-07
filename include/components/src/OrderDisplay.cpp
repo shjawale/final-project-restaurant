@@ -6,7 +6,7 @@
 
 void OrderDisplay::display(Item* i)
 {
-    printAtCenter(i->getName(), '-', 57);
+    printAtCenter(i->getName(), '=', 57);
     for(int j = 0; j < i->getItemSize(); j++)
     {
         std::cout << std::setw(10);
@@ -15,6 +15,7 @@ void OrderDisplay::display(Item* i)
     }
     std::string totalName = i->getName() + " Total";
     std::string endName = "End of " + i->getName();
-    std::cout << std::left << std::setw(49) << totalName << "$" << i->getTotalPrice() << std::endl;
-    printAtCenter(endName, '-', 57);
+    std::cout << std::left << std::setw(49) << std::setfill('.')<< totalName << "$" << i->getTotalPrice() << std::endl;
+    std::cout << std::setfill(' ');
+    printAtCenter(endName, '=', 57);
 }

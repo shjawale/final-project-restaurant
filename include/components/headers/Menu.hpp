@@ -73,7 +73,7 @@ protected:
 public:
 	BasicNestedMenu(const std::string& _title);
 
-	void display();
+	virtual void display();
 
 	void execute();
 

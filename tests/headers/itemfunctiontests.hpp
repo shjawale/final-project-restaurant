@@ -2,10 +2,10 @@
 #define ITEMFUNCTIONTESTS_HPP
 
 #include <gtest/gtest.h>
-#include "../components/headers/Item.h"
-#include "../components/headers/Singleitem.h"
-#include "../components/headers/plate.h"
-#include "../components/headers/SingleItemDisplay.hpp"
+#include "../../include/components/headers/Item.h"
+#include "../../include/components/headers/Singleitem.h"
+#include "../../include/components/headers/plate.h"
+#include "../../include/components/headers/SingleItemDisplay.hpp"
 
 TEST(ItemFunctionTests, getModificationsTest)
 {
