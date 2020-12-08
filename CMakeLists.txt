@@ -30,6 +30,8 @@ ADD_EXECUTABLE(restaurant
     include/components/src/Utilities.cpp
     include/windows/src/LoginWindow.cpp
     include/windows/src/Checkout.cpp
+    include/windows/src/OrderWindow.cpp
+    include/windows/src/ExtraOrderWindow.cpp
     
     include/components/src/item.cpp
     include/components/src/Singleitem.cpp
@@ -40,6 +42,9 @@ ADD_EXECUTABLE(restaurant
     include/components/src/order.cpp
     include/components/src/OrderDisplay.cpp
     include/components/src/HelperFunctions.cpp
+    include/components/src/ItemCreator.cpp
+
+    include/drivers/src/Application.cpp
 )
 
 ADD_EXECUTABLE(unit_tests

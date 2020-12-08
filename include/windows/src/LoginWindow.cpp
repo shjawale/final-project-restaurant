@@ -1,7 +1,6 @@
 #include "../headers/LoginWindow.hpp"
 
-LoginWindow::LoginWindow(const std::string& _title,const std::string& _filename): BasicMenu(_title){
-    current_user = nullptr;
+LoginWindow::LoginWindow(const std::string& _title, const std::string& _filename): BasicMenu(_title){
     users_file = _filename;
 
     //filling up the users vector.
@@ -113,10 +112,16 @@ void LoginWindow::Exit(){
     current_option = nullptr;
 }
 
-//============= Not shown on menu;
 
-
-
-User* LoginWindow::get_current_user(){
+//=============Not shown=============================
+User*& LoginWindow::get_user(){
     return current_user;
+}
+
+std::string LoginWindow::get_filaname(){
+    return users_file;
+}
+
+void LoginWindow::set_filename(const std::string& _name){
+    users_file = _name;
 }

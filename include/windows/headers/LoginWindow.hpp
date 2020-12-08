@@ -10,7 +10,7 @@ class LoginWindow: public BasicMenu{
 private:
     std::map<std::string, User*> users;
     std::string users_file;
-    User* current_user;
+    User* current_user = nullptr;
     void readUsers();
     void writeUsers();
 public:
@@ -22,8 +22,10 @@ public:
 
     void Exit();
 
-    // Not displayed on menu
-    User* get_current_user();
+//======== Not shown on menu ===================
+    User*& get_user();
+    std::string get_filaname();
+    void set_filename(const std::string& _name);
 };
 
 

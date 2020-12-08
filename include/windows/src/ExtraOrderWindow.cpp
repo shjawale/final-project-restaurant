@@ -7,9 +7,9 @@
 #include "../../components/src/HelperFunctions.cpp"
 #include <string>
 
-ExtraMenu::ExtraMenu(const std::string& _title, const std::string& fileName, Order* order) : BasicMenu(_title)
+ExtraMenu::ExtraMenu(const std::string& _title, const std::string& fileName, std::vector<Order*>* order) : BasicMenu(_title)
 {
-    this->order = order;
+    this->orders = order;
     file = fileName;
     addOption(new BasicMenuOption("Add a Drink", [this](){AddDrink();}));
     addOption(new BasicMenuOption("Add a Side", [this](){AddSide();}));
@@ -81,9 +81,9 @@ void ExtraMenu::AddDrink()
     std::cin >> n;
 
     std::cin.clear();
-    order->addPlate(choices.find("drink")->second.at(std::stoi(checkUserInput(n, choices, "drink"))));
+    orders->back()->addPlate(choices.find("drink")->second.at(std::stoi(checkUserInput(n, choices, "drink"))));
     std::cout << std::endl;
-    order->getDisplay();
+    orders->back()->getDisplay();
 }
 
 void ExtraMenu::AddSide()
@@ -95,9 +95,9 @@ void ExtraMenu::AddSide()
     std::cin >> n;
 
     std::cin.clear();
-    order->addPlate(choices.find("side")->second.at(std::stoi(checkUserInput(n, choices, "side"))));
+    orders->back()->addPlate(choices.find("side")->second.at(std::stoi(checkUserInput(n, choices, "side"))));
     std::cout << std::endl;
-    order->getDisplay();
+    orders->back()->getDisplay();
 }
 
 void ExtraMenu::AddDesert()
@@ -109,9 +109,9 @@ void ExtraMenu::AddDesert()
     std::cin >> n;
 
     std::cin.clear();
-    order->addPlate(choices.find("dessert")->second.at(std::stoi(checkUserInput(n, choices, "dessert"))));
+    orders->back()->addPlate(choices.find("dessert")->second.at(std::stoi(checkUserInput(n, choices, "dessert"))));
     std::cout << std::endl;
-    order->getDisplay();
+    orders->back()->getDisplay();
 }
 
 void ExtraMenu::AddSauce()
@@ -123,15 +123,15 @@ void ExtraMenu::AddSauce()
     std::cin >> n;
 
     std::cin.clear();
-    order->addPlate(choices.find("sauce")->second.at(std::stoi(checkUserInput(n, choices, "sauce"))));
+    orders->back()->addPlate(choices.find("sauce")->second.at(std::stoi(checkUserInput(n, choices, "sauce"))));
     std::cout << std::endl;
-    order->getDisplay();
+    orders->back()->getDisplay();
 }
 
 void ExtraMenu::RemoveItem()
 {
     std::cin.ignore();
-    if (order->getItemSize() == 0)
+    if (orders->back()->getItemSize() == 0)
     {
         std::cout << "No Plate to Remove." << std::endl;
     }
@@ -142,8 +142,8 @@ void ExtraMenu::RemoveItem()
         std::cin >> n;
 
         std::cin.clear();
-        order->removePlate((std::stoi(checkUserInput(n, order->getItemSize())) - 1));
-        order->getDisplay();
+        orders->back()->removePlate((std::stoi(checkUserInput(n, orders->back()->getItemSize())) - 1));
+        orders->back()->getDisplay();
     }
 }
 
