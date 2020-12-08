@@ -123,12 +123,12 @@ int main(){
     Chips Achip(1.25);
 
     Order* order = new Order("Order", new OrderDisplay());
-	std::vector<Order*>* orders;
-	orders->push_back(order);
+	//std::vector<Order*>* orders;
+	//orders->push_back(order);
 
-    OrderMenu* makeOrder = new OrderMenu("Make an Plate", "items.txt", orders);
+    OrderMenu* makeOrder = new OrderMenu("Make an Plate", "items.txt", order);
 
-    ExtraMenu* extraOrder = new ExtraMenu("Add a Miscellaneous Item", "items.txt", orders);
+    ExtraMenu* extraOrder = new ExtraMenu("Add a Miscellaneous Item", "items.txt", order);
 
     //EditMenu* editOrder = new EditMenu("Edit Order", "items.txt", order);
 
