@@ -17,7 +17,7 @@ ADD_EXECUTABLE(restaurant
     include/windows/src/ManagerWindow.cpp
     
     include/components/src/item.cpp
-    include/components/src/Singleitem.cpp
+    include/components/src/SingleItem.cpp
     include/components/src/SingleItemDisplay.cpp
     include/components/src/moneyclass.cpp
     include/components/src/MultiItemDisplay.cpp
@@ -34,7 +34,7 @@ ADD_EXECUTABLE(unit_tests
     tests/unit_tests.cpp
     include/components/src/moneyclass.cpp
     include/components/src/item.cpp
-    include/components/src/Singleitem.cpp
+    include/components/src/SingleItem.cpp
     include/components/src/SingleItemDisplay.cpp
     include/components/src/plate.cpp
     include/components/src/ItemCreator.cpp
@@ -44,7 +44,7 @@ ADD_EXECUTABLE(unit_tests
 ADD_EXECUTABLE(OrderDisplayTest
     tests/testDisplay.cpp
     include/components/src/item.cpp
-    include/components/src/Singleitem.cpp
+    include/components/src/SingleItem.cpp
     include/components/src/SingleItemDisplay.cpp
     include/components/src/moneyclass.cpp
     include/components/src/MultiItemDisplay.cpp

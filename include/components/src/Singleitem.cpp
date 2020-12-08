@@ -6,28 +6,22 @@ SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType)
 {
     this->name = name;
     this->displayType = displayType;
-    price.setMoney(0.0);
 }
 
-SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType, double money)
+void SingleItem::addItem(Item* item)
 {
-    this->name = name;
-    this->displayType = displayType;
-    price.setMoney(money);
+    items.push_back(item);
+    price.addMoney(item->getPrice().getRealMoney());
 }
 
-void SingleItem::addModifications(std::string mod)
+void SingleItem::removeItem(Item* item)
 {
-    modifications.push_back(mod);
-}
-
-void SingleItem::removeModifications(std::string mod)
-{
-    for (int i = 0; i < modifications.size(); i++)
+    for (int i = 0; i < items.size(); i++)
     {
-        if (modifications.at(i) == mod)
+        if (items.at(i) == item)
         {
-            modifications.erase(modifications.begin() + i);
+            items.erase(items.begin() + i);
+            price.subMoney(item->getPrice().getRealMoney());
         }
     }
 }
