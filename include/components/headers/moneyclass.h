@@ -3,6 +3,7 @@
 
 #include <string>
 #include <cmath>
+#include <sstream>
 
 #define ERROR 0.000001
 

@@ -33,15 +33,16 @@ int MoneyClass::getCent()
 
 std::string MoneyClass::getTotal()
 {
-    
-    std::string mon = std::to_string(Dollars) + "." + std::to_string(Cents);
-    return mon;
+    std::ostringstream stream;
+    stream << Dollars << ".";
+    stream.precision(2);
+    stream << (double)Cents;
+    return stream.str();
 }
 
 double MoneyClass::getRealMoney()
 {
-    std::string totalMoney = std::to_string(Dollars) + "." + std::to_string(Cents);
-    return std::stod(totalMoney);
+    return std::stod(getTotal());
 }
 
 void MoneyClass::addMoney(double tempMoney)
