@@ -19,7 +19,6 @@ class MoneyClass
         long int getDollar();
         int getCent();
         std::string getTotal(); 
-        void setDiscount(double discount);
         double getRealMoney();
         void addMoney(double tempMoney);
         void subMoney(double tempMoney);
