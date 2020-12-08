@@ -3,35 +3,40 @@
 Application::Application(){
     menu = new BasicNestedMenu("RESTAURANT");
     menu->addWindow(login);
+    menu->addWindow(manWindow);
     menu->addWindow(new OrderMenu("MAKE ORDER", "../files/items.txt", &orders));
     menu->addWindow(new ExtraMenu("EXTRA", "../files/items.txt", &orders));
     menu->addWindow(new CheckoutWindow("CHECKOUT", &orders, &balance));
+    menu->switchWindow(0);
 }
 
 void Application::run(){
-    menu->switchWindow(0);
     bool is_done = false;
     do{
         do{
             menu->display();
             menu->get_current()->display();
+            int option_index;
             std::cout << "Enter option: ";
-            int option;
-            std::cin >> option;
-            menu->get_current()->switch_options(option - 1);
+            std::cin >> option_index;
+            menu->get_current()->switch_options(option_index - 1);
             menu->execute();
         }while(menu->get_current()->get_current());
         menu->display();
-        std::cout << "Press \"Q\" to quit\nSelect Window: ";
-        int window;
-        std::cin >> window;
-        if(std::cin.fail()){is_done = true;}
+        std::cout << "Enter any letter to quit\nSelect Window: ";
+        int window_index;
+        std::cin >> window_index;
+
+        if(std::cin.fail()){
+            is_done = true;
+        }
         else{
             if(login->get_user()){      //user is not nullptr, hence it exists
-                menu->switchWindow(window - 1);
+                manWindow->get_user() = login->get_user();
+                menu->switchWindow(window_index - 1);
             }
             else{
-                std::cout << "Please enter a valid user.\n\n";
+                std::cout << "Please Login with a valid user.\n\n";
             }
         }
     }while(!is_done);

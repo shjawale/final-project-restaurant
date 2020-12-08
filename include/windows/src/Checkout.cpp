@@ -3,8 +3,8 @@
 CheckoutWindow::CheckoutWindow(const std::string& _title, std::vector<Order*>* _orders, MoneyClass* _balance): BasicMenu(_title){
     orders = _orders;
     balance = _balance;
-    addOption(new BasicMenuOption("Payment", [this](){pay();}));
-    addOption(new BasicMenuOption("Exit", [this](){Exit();}));
+    addOption(new BasicMenuOption("Cash", [this](){pay();}));
+    addOption(new BasicMenuOption("Return", [this](){Exit();}));
 }
 
 void CheckoutWindow::display(){
@@ -24,11 +24,13 @@ void CheckoutWindow::display(){
 
 
 void CheckoutWindow::pay(){
+    std::cin.ignore();
+    std::cout << "Handed cash: $ ";
+    std::string cash;
+    getline(std::cin, cash);
 
-    std::cout << "Handed cash: $";
-    double cash;
-    std::cin >> cash;
-    MoneyClass payment(cash);
+    MoneyClass payment(std::stod(cash));
+
     std::cout << "\n\n";
 
     balance->addMoney(orders->back()->getTotalPrice());

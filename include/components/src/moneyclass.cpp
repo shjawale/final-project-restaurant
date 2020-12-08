@@ -14,12 +14,11 @@ MoneyClass::MoneyClass(double tempMoney)
 
 void MoneyClass::setMoney(double tempMoney)
 {
-    int tempDollar;
+    double tempDollar;
     double tempCent;
-    tempDollar = static_cast<int>(tempMoney);
-    tempCent = (tempMoney - tempDollar) * 100;
-    Dollars = tempDollar;
-    Cents = round(tempCent + ERROR);
+    tempCent = modf(tempMoney, &tempDollar);  // separates the whole and the fractional part of a double.
+    Dollars = static_cast<int>(tempDollar + ERROR);
+    Cents = static_cast<int>((tempCent + ERROR) * 100);
 }
 
 long int MoneyClass::getDollar()
@@ -40,10 +39,8 @@ std::string MoneyClass::getTotal()
 
 void MoneyClass::setDiscount(double discount)
 {
-    std::string totalMoney = std::to_string(Dollars) + "." + std::to_string(Cents);
-    double tm = std::stod(totalMoney);
-    tm = tm - (tm * (discount / 100));
-    this->setMoney(tm);
+    double real_discount = getRealMoney() * ((discount / 100.0) + ERROR);
+    subMoney(real_discount);
 }
 
 double MoneyClass::getRealMoney()
@@ -55,11 +52,11 @@ double MoneyClass::getRealMoney()
 void MoneyClass::addMoney(double tempMoney)
 {
     double realPrice = tempMoney + this->getRealMoney();
-    this->setMoney(realPrice);
+    this->setMoney(realPrice + ERROR);
 }
 
 void MoneyClass::subMoney(double tempMoney)
 {
     double realPrice = this->getRealMoney() - tempMoney;
-    this->setMoney(realPrice);
+    this->setMoney(realPrice + ERROR);
 }
