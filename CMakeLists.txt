@@ -11,7 +11,7 @@ ADD_EXECUTABLE(example
     include/components/src/Menu.cpp
     # New classes added
     include/components/src/item.cpp
-    include/components/src/SingleItem.cpp
+    include/components/src/Singleitem.cpp
     include/components/src/plate.cpp
     include/components/src/order.cpp
     include/components/src/SingleItemDisplay.cpp
@@ -73,7 +73,7 @@ ADD_EXECUTABLE( CreatorTests
     tests/CreatorClass.cpp 
     include/components/src/ItemCreator.cpp
     include/components/src/item.cpp
-    include/components/src/SingleItem.cpp
+    include/components/src/Singleitem.cpp
     include/components/src/plate.cpp
     include/components/src/MultiItemDisplay.cpp
     include/components/src/SingleItemDisplay.cpp
