@@ -3,6 +3,7 @@
 
 #include <gtest/gtest.h>
 #include "../../include/components/headers/moneyclass.h"
+#include <cstring>
 
 TEST(MoneyclassTest, GetDollarTest)
 {
@@ -37,7 +38,8 @@ TEST(MoneyclassTest, GetCentTest)
 TEST(MoneyclassTest, GetTotalTest)
 {
     MoneyClass* test = new MoneyClass();
-    EXPECT_EQ(test->getTotal(), "0.0");
+    bool string = test->getTotal() == "0.00";
+    EXPECT_TRUE(string);
 
     test->setMoney(123.45);
     EXPECT_EQ(test->getTotal(), "123.45");
@@ -47,6 +49,12 @@ TEST(MoneyclassTest, GetTotalTest)
 
     test2->setMoney(1.78);
     EXPECT_EQ(test2->getTotal(), "1.78");
+
+    test2->setMoney(1.70);
+    EXPECT_EQ(test2->getTotal(), "1.70");
+
+    MoneyClass* test3 = new MoneyClass(0.07);
+    EXPECT_EQ(test3->getTotal(), "0.07");
 }
 
 TEST(MoneyclassTest, RealMoneyTest)

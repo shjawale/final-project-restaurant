@@ -35,8 +35,8 @@ std::string MoneyClass::getTotal()
 {
     std::ostringstream stream;
     stream << Dollars << ".";
-    stream.precision(2);
-    stream << (double)Cents;
+    //stream.precision(3);
+    stream << std::setw(2) << std::setfill('0') << std::right << Cents;
     return stream.str();
 }
 
