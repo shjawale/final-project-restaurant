@@ -33,7 +33,7 @@ int MoneyClass::getCent()
 
 std::string MoneyClass::getTotal()
 {
-    //std::string stream
+    
     std::string mon = std::to_string(Dollars) + "." + std::to_string(Cents);
     return mon;
 }

@@ -49,23 +49,6 @@ TEST(MoneyclassTest, GetTotalTest)
     EXPECT_EQ(test2->getTotal(), "1.78");
 }
 
-TEST(MoneyclassTest, DiscountTest)
-{
-    MoneyClass* test = new MoneyClass();
-
-    test->setMoney(123.45);
-    EXPECT_EQ(test->getTotal(), "123.45");
-
-    test->setDiscount(5);
-    EXPECT_EQ(test->getTotal(), "117.28");
-
-    test->setMoney(987.65);
-    EXPECT_EQ(test->getTotal(), "987.65");
-
-    test->setDiscount(20);
-    EXPECT_EQ(test->getTotal(), "790.12");
-}
-
 TEST(MoneyclassTest, RealMoneyTest)
 {
     MoneyClass* test = new MoneyClass();
