@@ -19,7 +19,7 @@ LoginWindow::LoginWindow(const std::string& _title, const std::string& _filename
     )),
 
     addOption(new BasicMenuOption(
-        "Exit",
+        "Return",
         [this](){ Exit(); }
     ));
 }

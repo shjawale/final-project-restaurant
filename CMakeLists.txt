@@ -6,6 +6,7 @@ INCLUDE_DIRECTORIES(googletest/include)
 
 SET(CMAKE_CXX_STANDARD 11)
 
+<<<<<<< HEAD
 ADD_EXECUTABLE(example
     example.cpp
     include/components/src/Menu.cpp
@@ -24,6 +25,8 @@ ADD_EXECUTABLE(example
     include/components/src/ItemCreator.cpp
 )
 
+=======
+>>>>>>> 09081f29fa34f5490a363d4075e4c42f367da3b1
 ADD_EXECUTABLE(restaurant
     restaurant.cpp
     include/components/src/Menu.cpp
@@ -32,6 +35,7 @@ ADD_EXECUTABLE(restaurant
     include/windows/src/Checkout.cpp
     include/windows/src/OrderWindow.cpp
     include/windows/src/ExtraOrderWindow.cpp
+    include/windows/src/ManagerWindow.cpp
     
     include/components/src/item.cpp
     include/components/src/Singleitem.cpp
@@ -54,9 +58,11 @@ ADD_EXECUTABLE(unit_tests
     include/components/src/Singleitem.cpp
     include/components/src/SingleItemDisplay.cpp
     include/components/src/plate.cpp
+    include/components/src/ItemCreator.cpp
+    include/components/src/MultiItemDisplay.cpp
 )
 
-ADD_EXECUTABLE( displayTestTwo
+ADD_EXECUTABLE(OrderDisplayTest
     tests/testDisplay.cpp
     include/components/src/item.cpp
     include/components/src/Singleitem.cpp
@@ -69,17 +75,5 @@ ADD_EXECUTABLE( displayTestTwo
     include/components/src/HelperFunctions.cpp
 )
 
-ADD_EXECUTABLE( CreatorTests
-    tests/CreatorClass.cpp 
-    include/components/src/ItemCreator.cpp
-    include/components/src/item.cpp
-    include/components/src/Singleitem.cpp
-    include/components/src/plate.cpp
-    include/components/src/MultiItemDisplay.cpp
-    include/components/src/SingleItemDisplay.cpp
-    include/components/src/moneyclass.cpp
-)
-
-TARGET_LINK_LIBRARIES(CreatorTests gtest)
 TARGET_LINK_LIBRARIES(unit_tests gtest)
 TARGET_COMPILE_DEFINITIONS(unit_tests PRIVATE gtest_disable_pthreads=ON)

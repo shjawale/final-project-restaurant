@@ -8,6 +8,7 @@
 #include "../../windows/headers/OrderWindow.hpp"
 #include "../../windows/headers/EditOrderWindow.hpp"
 #include "../../windows/headers/ExtraOrderWindow.hpp"
+#include "../../windows/headers/ManagerWindow.hpp"
 
 #include "../../components/headers/Item.h"
 #include "../../components/headers/Singleitem.h"
@@ -21,6 +22,7 @@
 class Application{
 private:
     LoginWindow* login = new LoginWindow("LOGIN OR REGISTER", "../files/users.txt");
+    ManagerWindow* manWindow = new ManagerWindow("MANAGER FUNCTIONS", login->get_user(), &orders);
 
     BasicNestedMenu* menu = nullptr;
     std::vector<Order*> orders;

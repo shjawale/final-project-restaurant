@@ -27,6 +27,7 @@ std::string BasicMenu::get_title(){
 }
 
 void BasicMenu::display(){
+	std::cout << std::right;
 	std::cout << std::setfill('-') << std::setw(SEPARATOR_LENGTH) << '-' << "\n\n";
 	std::cout << std::setfill(' ');
 
@@ -44,7 +45,25 @@ Menu* BasicMenu::get_current(){
 }
 
 void BasicMenu::switch_options(int index){
-	current_option = options[index];
+	if(index >= 0 && index < options.size()){
+		current_option = options[index];
+	}
+	else if(std::cin.fail()){
+		/*If index not int then switch_options() is called with an invalid choice
+		forcing a prompt that allows the user to enter an option.
+		*/
+		std::cin.ignore();
+		std::cin.clear();
+		switch_options(-1);
+	}
+	else{
+		std::cin.ignore();
+		std::cout << "Not a valid choice\n";
+		std::cout << "Enter a valid option: ";
+		int temp; 
+		std::cin >> temp;
+		switch_options(temp-1);
+	}
 }
 
 void BasicMenu::execute(){
@@ -65,6 +84,7 @@ void BasicMenu::removeOption(int index){
 BasicNestedMenu::BasicNestedMenu(const std::string& _title): window_title(_title){}
 
 void BasicNestedMenu::display(){
+	std::cout << std::right;
 	std::cout << std::setfill('=') << std::setw(SEPARATOR_LENGTH) << '=' << "\n\n";
 	std::cout << std::setfill(' ');
 
@@ -88,7 +108,25 @@ std::string BasicNestedMenu::get_title(){
 }
 
 void BasicNestedMenu::switchWindow(int index){
-	current_window = windows[index];
+	if(index >= 0 && index < windows.size()){
+		current_window = windows[index];
+	}
+	else if(std::cin.fail()){
+		/*If index not int then switchWindow() is called with an invalid choice
+		forcing a prompt that allows the user to enter an option.
+		*/
+		std::cin.ignore();
+		std::cin.clear();
+		switchWindow(-1);
+	}
+	else{
+		std::cin.ignore();
+		std::cout << "Not a valid choice\n";
+		std::cout << "Enter a valid option: ";
+		int temp; 
+		std::cin >> temp;
+		switchWindow(temp-1);
+	}
 }
 
 
