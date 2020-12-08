@@ -4,7 +4,7 @@
 #include "../include/components/headers/moneyclass.h"
 #include "../include/components/headers/ItemCreator.hpp"
 #include "../include/components/headers/plate.h"
-#include "../include/components/headers/SingleItem.h"
+#include "../include/components/headers/Singleitem.h"
 
 TEST(ItemCreatorTest, GetSingleItemTest){
     std::string name = "water";
