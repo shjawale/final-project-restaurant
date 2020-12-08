@@ -3,6 +3,7 @@
 #include "headers/itemtests.hpp"
 #include "headers/moneyclasstests.h"
 #include "headers/itemfunctiontests.hpp"
+#include "headers/CreatorClass.hpp"
 
 int main(int argc, char **argv){
     ::testing::InitGoogleTest(&argc, argv);

@@ -16,7 +16,7 @@ side Chow_mein 7.89
 dessert Cheesecake 10.70
 dessert Apple_pie 12.34
 dessert Choccolate_brownie 5.25
-sauce Soy 1.45
+sauce _Soy_ 1.45
 sauce Teriyaki 1.25
 sauce Ketchup 0.50
 sauce Cheese_sauce 1.35
