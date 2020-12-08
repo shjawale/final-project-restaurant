@@ -38,12 +38,6 @@ std::string MoneyClass::getTotal()
     return mon;
 }
 
-void MoneyClass::setDiscount(double discount)
-{
-    double real_discount = getRealMoney() * ((discount / 100.0) + ERROR);
-    subMoney(real_discount);
-}
-
 double MoneyClass::getRealMoney()
 {
     std::string totalMoney = std::to_string(Dollars) + "." + std::to_string(Cents);
