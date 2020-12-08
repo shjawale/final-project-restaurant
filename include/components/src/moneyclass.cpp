@@ -34,16 +34,9 @@ int MoneyClass::getCent()
 
 std::string MoneyClass::getTotal()
 {
+    //std::string stream
     std::string mon = std::to_string(Dollars) + "." + std::to_string(Cents);
     return mon;
-}
-
-void MoneyClass::setDiscount(double discount)
-{
-    std::string totalMoney = std::to_string(Dollars) + "." + std::to_string(Cents);
-    double tm = std::stod(totalMoney);
-    tm = tm - (tm * (discount / 100));
-    this->setMoney(tm);
 }
 
 double MoneyClass::getRealMoney()
