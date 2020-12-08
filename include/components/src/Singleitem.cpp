@@ -2,18 +2,17 @@
 
 SingleItem::SingleItem() : Item() {}
 
-SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType)
-{
-    this->name = name;
-    this->displayType = displayType;
-    price.setMoney(0.0);
-}
-
 SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType, double money)
 {
     this->name = name;
     this->displayType = displayType;
     price.setMoney(money);
+}
+
+SingleItem::SingleItem(std::string name, IDisplayBehavior* displayType)
+{
+    this->name = name;
+    this->displayType = displayType;
 }
 
 void SingleItem::addModifications(std::string mod)

@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "../include/components/headers/Item.h"
-#include "../include/components/headers/Singleitem.h"
+#include "../include/components/headers/SingleItem.h"
 #include "../include/components/headers/plate.h"
 #include "../include/components/headers/order.h"
 #include "../include/components/headers/SingleItemDisplay.hpp"

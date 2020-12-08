@@ -1,10 +1,10 @@
 #include "gtest/gtest.h"
 
-#include "../include/components/headers/Item.h"
-#include "../include/components/headers/moneyclass.h"
-#include "../include/components/headers/ItemCreator.hpp"
-#include "../include/components/headers/plate.h"
-#include "../include/components/headers/Singleitem.h"
+#include "../../include/components/headers/Item.h"
+#include "../../include/components/headers/moneyclass.h"
+#include "../../include/components/headers/ItemCreator.hpp"
+#include "../../include/components/headers/plate.h"
+#include "../../include/components/headers/SingleItem.h"
 
 TEST(ItemCreatorTest, GetSingleItemTest){
     std::string name = "water";
@@ -57,9 +57,4 @@ TEST(ItemCreatorTest, GetPlateTest2){
 	Item* item = itemCreator.CreateItem(PLATE_ITEM_T, name, money);
 	EXPECT_EQ(item->getName(), "burger");
 	EXPECT_EQ(item->getPrice().getTotal(), "12.95");
-}
-
-int main(int argc, char** argv){
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
 }

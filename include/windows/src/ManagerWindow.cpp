@@ -5,11 +5,11 @@
 #include "../../components/src/HelperFunctions.cpp"
 #include "../../components/headers/Item.h"
 #include <string>
-#include <fstream>
 #include <iostream>
 
-ManagerWindow::ManagerWindow(const std::string& title, const std::string& fileName, std::vector<Order*>* ordervector): BasicMenu(title) {
+ManagerWindow::ManagerWindow(const std::string& title, User* user, std::vector<Order*>* ordervector): BasicMenu(title) {
 	this->orders = ordervector;
+	current_user = user;
 	_totalCost = 0;
 
 	addOption(new BasicMenuOption("View Today's Total", [this](){PrintMenu();}));
@@ -17,17 +17,26 @@ ManagerWindow::ManagerWindow(const std::string& title, const std::string& fileNa
 }
 
 void ManagerWindow::PrintMenu(){ 
-	orders->back->getDisplay();
-	std::string lineacross = "-----------------------------";
+	//orders->back()->getDisplay();
+	if(current_user->title == "Manager"){
+		std::cout << std::left;
+		for (int i = 0; i < orders->size(); i++){
+			std::cout << std::setfill('-') << std::setw(35) << "Order " << (*orders)[i]->getName() << ": ";
+			std::cout << " $ " << (*orders)[i]->getTotalPrice() << "\n";
 
-	for (int i = 0; i < orders.size(); i++){
-		std::cout << orders[i]->getName() << lineacross << orders.at[i]->getTotalPrice() << "\n\n";
-
-		_totalCost += orders[i]->getTotalPrice();
+			_totalCost += (*orders)[i]->getTotalPrice();
+		}
+		std::cout << "\n\n";
+		std::cout << std::setw(25) << "Today's total ";
+		std::cout << " $ " << _totalCost << std::endl;
+		std::cout << std::setfill(' ');
+		std::cout << std::right;
 	}
-	std::cout << "\n\n" << "Today's total" << lineacross << _totalCost << std::endl;
+	else{
+		std::cout << "Not a manager.\nPlease login as a manager.\n\n";
+	}
 }
 
 void ManagerWindow::Exit(){
-	currentOption = nullptr;
+	current_option = nullptr;
 } 
