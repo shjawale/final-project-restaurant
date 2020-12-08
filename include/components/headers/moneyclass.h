@@ -25,4 +25,6 @@ class MoneyClass
         void subMoney(double tempMoney);
 };
 
+inline bool operator==(const MoneyClass& lhs, const MoneyClass& rhs){return true;}
+
 #endif
