@@ -9,4 +9,4 @@ struct User{
     std::string password;
 };
 
-//----------- Write the UserInput classes here under the "input" namespace. -------------------
+std::string asciiencrypt(const std::string& text);

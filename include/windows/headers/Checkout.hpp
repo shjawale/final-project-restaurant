@@ -18,5 +18,7 @@ public:
 
     void pay();
 
+    void cancel();
+
     void Exit();
 };

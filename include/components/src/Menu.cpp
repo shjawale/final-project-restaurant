@@ -1,6 +1,6 @@
 #include "../headers/Menu.hpp"
 
-const int SEPARATOR_LENGTH = 70;
+const int SEPARATOR_LENGTH = 80;
 
 
 //======== BasicMenuOption =================
