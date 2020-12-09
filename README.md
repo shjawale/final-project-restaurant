@@ -48,11 +48,7 @@ In this project we are using the Factory Method Pattern  to create necessary Pro
  > Before the demo, you should do the following:
  > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
- ## Screenshots
- > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
-
   To install the application follow the following recommended steps:
   ```
   git clone https://github.com/cs100/final-project-bguev006-ebaye001-sjawa006.git Restaurant
@@ -93,6 +89,93 @@ Sometimes you may want to look at a summary of the sales for the day. For that w
 
 ### Quitting the Program
 To quit simply access the window-switching menu and enter any letter.
- ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 
+
+# Screenshots
+## Initial Login
+![](Images/Screenshots/InitialStartupLogin.PNG)
+
+The initial login when starting the restaurant driver.
+
+## Failed Login
+![](Images/Screenshots/FailedLogin.PNG)
+
+A Login that was incorrect and failed to actually login the user.
+
+## Initial User Registration
+![](Images/Screenshots/Register.PNG)
+
+An initial registration of a user with the Manager title for future options.
+
+## Using Previous Registration to Login
+![](Images/Screenshots/SuccessfulLogin.PNG)
+
+A successful login using the information that was registered previously.
+
+## The User information file with Encryption
+![](Images/Screenshots/PostRegisterUsersTextFile.PNG)
+
+The file which stores all registered users that has encryption ability.
+
+## The Make Order Menu with the Make Plate option
+![](Images/Screenshots/MakeOrderMakePlate.PNG)
+
+After selecting the `Make Order` menu option, it has the `Make Plate`, `Remove Plate` and `Return` options. We then selected the `Make Plate` option which reveals the given selection of Items and their prices to put in a plate and the choice for the user to select. We also see incorrect user input which prompts the user to re-enter their choice until it is correct, and once the user is done then we output the current order with all of the current plates and items.
+
+## The Remove Plate Option
+![](Images/Screenshots/RemovePlate.PNG)
+
+After the user makes a plate they can then choose to remove a plate by selecting a palte or item on the order and it deletes it from the order while the adjusting the price.
+
+## The Extra Options Menu
+![](Images/Screenshots/ExtraMenu.PNG)
+
+The Extra Options menu allows the user to add extra items that would not be part of a plate such as drinks, sides, desserts, and sauces.
+
+## Extra Menu Add a Drink Option
+![](Images/Screenshots/AddDrink.PNG)
+
+Within the Extra Menu, the Add Drink option will allow the user to add a drink item to the current order.
+
+## Extra Menu Add a Side Option
+![](Images/Screenshots/AddSide.PNG)
+
+Within the Extra Menu, the Add a Side option will allow the user to add a side item to the current order such as fries.
+
+## Extra Menu Add a Dessert Option
+![](Images/Screenshots/AddDessert.PNG)
+
+Within the Extra Menu, the Add a Dessert option will allow the user to add a dessert item to the current order such as Apple Pie.
+
+## Extra Menu Add a Sauce Option
+![](Images/Screenshots/AddSauce.PNG)
+
+Within the Extra Menu, the Add a Sauce option will allow the user to add a sauce item to the current order such as Soy.
+
+## Extra Menu Remove an Item Option
+![](Images/Screenshots/RemoveExtraItem.PNG)
+
+The `Remove an Item or Plate` option will prompt the user to choose an item or plate based on position from the top to the bottom which when selected will delete that Item or Plate from the overall Order.
+
+## The Checkout Menu
+![](Images/Screenshots/Checkout1.PNG)
+
+Once the user selects the `Checkout` menu, they will be presented with the total order and the total price, with the options to pay for the order with cash, to cancel the current order, or to go back to the previous menu.
+
+## The Checkout with Pay
+![](Images/Screenshots/Checkout2.PNG)
+
+If the user selects the `Cash` option they will be presented with the choice to enter the amount of cash to pay for the order and will be returned the change for the customer if there is any.
+
+## The Manager Menu
+![](Images/Screenshots/Manager.PNG)
+
+If the user has a title of Manager then they can use the Manager menu, which has the option to list all of the orders for the given day.
+
+## Quiting
+![](Images/Screenshots/Quit.PNG)
+
+Once the user backs out of the menus they are using, then they can press any character (not an integer) to quit the program.
+
+# Tests
+Our testing format for all our functions and classes was googletests. We tested our menu and display classes by checking the output of the print function in each class. The creator, item, and money classes were tested by creating an object and checking if the member variables matched the ones inputted as arguments to the member function or constructor.
+
