@@ -34,24 +34,89 @@ In designing an Item for our Cash Register, we will be using the `Item` class as
 
 In this project we are using the Factory Method Pattern  to create necessary Products, in this case `Item`. The Concrete Products are `Order`, `Plate`, and `SingleItem`. `PlateCreator` will return a `Plate` and `SingleItemCreator` will return a `Single Item`. Both of these concrete creators are subclasses of `ItemCreator`. Within the Factory Method Pattern, we are implementing parameterized factory method. This means that `PlateCreator` will be responsible for all the different types of plates, differentiating between them using the attributes passed into the constructor. Same goes for the `SingleItemCreator`. 
  
- > ## Phase III
- > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
- > * Before the meeting you should perform a sprint plan like you did in Phase II
- > * In the meeting with your TA you will discuss: 
- >   - How effective your last sprint was (each member should talk about what they did)
- >   - Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- >   - Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- >   - What tasks you are planning for this next sprint.
 
- > ## Final deliverable
- > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
- ## Screenshots
- > Screenshots of the input/output after running your application
- ## Installation/Usage
- > Instructions on installing and running your application
- ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
-The googletests format was the basis of how we tested our functions and classes. We tested our menu and display classes by checking the output of each of the print functions. The creator class was tested by creating an object and checking if the member variables matched the ones inputted as arguments to the member function. The remaining class tests were done in a similar way to the creator class test.
+# Screenshots
+## Initial Login
+![](Images/Screenshots/InitialStartupLogin.PNG)
+
+The initial login when starting the restaurant driver.
+
+## Failed Login
+![](Images/Screenshots/FailedLogin.PNG)
+
+A Login that was incorrect and failed to actually login the user.
+
+## Initial User Registration
+![](Images/Screenshots/Register.PNG)
+
+An initial register of a user with the manager title for future options.
+
+## Using Previous Registration to Login
+![](Images/Screenshots/SuccessfulLogin.PNG)
+
+A successful login using the information that was registered previously.
+
+## The User information file with Encryption
+![](Images/Screenshots/PostRegisterUsersTextFile.PNG)
+
+The file which stores all registered users that has encryption ability.
+
+## The Make an Order Menu with the Make Plate option
+![](Images/Screenshots/MakeOrderMakePlate.PNG)
+
+After selecting the Make Order menu option, it has the `Make Plate`, `Remove Plate` and `Return` options. We then selected the `Make Plate` option which reveals the given selection of Items and their prices to put in a plate and the choice for the user to select. We also see incorrect user input which prompts the user to re-enter their choice until it is correct, and once the user is done then we output the current order with all of the current plates and items.
+
+## The Remove Plate Option
+![](Images/Screenshots/RemovePlate.PNG)
+
+After the user makes a plate they can then choose to remove a plate by choosing which one on the order and it deletes it from the order.
+
+## The Extra Options Menu
+![](Images/Screenshots/ExtraMenu.PNG)
+
+The Extra Options menu allows the user to add extra items that would not be part of a plate such as drinks, sides, desserts, and sauces.
+
+## Extra Menu Add a Drink Option
+![](Images/Screenshots/AddDrink.PNG)
+
+Within the Extra Menu, the Add Drink option will allow the user to add a drink item to the current order.
+
+## Extra Menu Add a Side Option
+![](Images/Screenshots/AddSide.PNG)
+
+Within the Extra Menu, the Add a Side option will allow the user to add a side item to the current order such as fries.
+
+## Extra Menu Add a Dessert Option
+![](Images/Screenshots/AddDessert.PNG)
+
+Within the Extra Menu, the Add a Dessert option will allow the user to add a dessert item to the current order such as Apple Pie.
+
+## Extra Menu Add a Sauce Option
+![](Images/Screenshots/AddSauce.PNG)
+
+Within the Extra Menu, the Add a Sauce option will allow the user to add a sauce item to the current order such as Soy.
+
+## Extra Menu Remove an Item Option
+![](Images/Screenshots/RemoveExtraItem.PNG)
+
+The `Remove an Item or Plate` option will prompt the user to choose an item based on position from the top to the bottom which when selected will delete that Item or Plate from the overall Order.
+
+## The Checkout Menu
+![](Images/Screenshots/Checkout1.PNG)
+
+Once the user selects the `Checkout` menu, they will be presented with the total order and the total price, with the options to pay for the order with cash, to cancel the current order, or to back to the previous menu.
+
+## The Checkout with Pay
+![](Images/Screenshots/Checkout2.PNG)
+
+If the user selects the `Cash` option they will be presented with the choice to enter the amount of cash to pay for the order and will be returned the change for the customer if there is any.
+
+## The Manager Menu
+![](Images/Screenshots/Manager.PNG)
+
+If the user has a title of Manager then they can use the Manager menu, which has the option to list all of the orders for the given day.
+
+## Quiting
+![](Images/Screenshots/Quit.PNG)
+
+Once the user backs out of the menus they are using, then they can press any character (not an integer) to quit the program.
