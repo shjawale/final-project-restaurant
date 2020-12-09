@@ -21,7 +21,7 @@ void ManagerWindow::PrintMenu(){
 	if(current_user->title == "Manager"){
 		std::cout << std::left;
 		for (int i = 0; i < orders->size(); i++){
-			std::cout << std::setfill('-') << std::setw(35) << "Order " << (*orders)[i]->getName() << ": ";
+			std::cout << "Order " << (*orders)[i]->getName() << std::setfill('-') << std::setw(35) << ": ";
 			std::cout << " $ " << (*orders)[i]->getTotalPrice() << "\n";
 
 			_totalCost += (*orders)[i]->getTotalPrice();

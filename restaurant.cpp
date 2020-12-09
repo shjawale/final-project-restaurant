@@ -2,7 +2,7 @@
 
 
 int main(){
-    Application app;
+    Application app("../files/users.txt", "../files/items.txt");
     app.run();
     return 0;
 }

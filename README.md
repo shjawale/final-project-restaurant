@@ -52,6 +52,47 @@ In this project we are using the Factory Method Pattern  to create necessary Pro
  > Screenshots of the input/output after running your application
  ## Installation/Usage
  > Instructions on installing and running your application
+
+  To install the application follow the following recommended steps:
+  ```
+  git clone https://github.com/cs100/final-project-bguev006-ebaye001-sjawa006.git Restaurant
+
+  cd Restaurant
+  mkdir build
+  cd build
+  cmake3 ..
+  make
+  ./restaurant
+  ```
+  The program uses files to save the information of the users and the information of the items available. If the instructions above are followed the paths that are already set should work, if you build the program in a different way, make sure to change the paths accordingly. You can change the paths by opening the `restaurant.cpp` file and changing the paths set on the `Application` constructor.
+
+  When you start the program you will be greeted by this screen
+  ![](Images/instructions/login.png)
+  Here you will have to login before you can use any of the other screens. If you are not registered you can select the second option and fill the prompts that will appear. Once you register go ahead and login with your new account.
+  
+  Once you have successfully registered and have access to the other windows. To switch windows simply press the `Return` option on any of the windows. This option will take you to the window-switching menu:
+  ![](Images/instructions/switchwindows.png)
+  Here you can select the window you want to go to and it will take you to that window.
+
+### Let's Add a Plate to the Order
+To make an order you go to the `MAKE ORDER` window by pressing 3 on the window-switching menu.
+You will be received by the Order menu where you can add a plate to your order and you will receive a summary of the order you have so far.
+![](Images/instructions/ordering.png)
+### Let's Add a Drink
+Lets now add a drink by going to the `EXTRA` menu. Simply select the `Return` option to get to the window-switching menu and select option 4.
+![](Images/instructions/drink.png)
+
+### Finally let's Checkout
+To checkout an order just go to the window-switching menu and select the `CHECKOUT` option. There you will see a summary of your order and three options that allow you to pay in cash, cancel the order or return to the window-switching menu. Our total is $13.07 so lets pay with $15.
+![](Images/instructions/checkout.png)
+Once the order is payed a new empty order gets added to window and the Checkout window will display an empty order.
+
+### Looking at a Summary for the Day
+Sometimes you may want to look at a summary of the sales for the day. For that we can use the `MANAGER FUNCTIONS` window. We have to be signed in as a manager and once we are in it we can print a summary of the day's sales.
+![](Images/instructions/manager.png)
+
+### Quitting the Program
+To quit simply access the window-switching menu and enter any letter.
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  

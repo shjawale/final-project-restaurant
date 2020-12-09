@@ -21,7 +21,9 @@
 
 class Application{
 private:
-    LoginWindow* login = new LoginWindow("LOGIN OR REGISTER", "../files/users.txt");
+    std::string users, items;
+
+    LoginWindow* login = new LoginWindow("LOGIN OR REGISTER", users);
     ManagerWindow* manWindow = new ManagerWindow("MANAGER FUNCTIONS", login->get_user(), &orders);
 
     BasicNestedMenu* menu = nullptr;
@@ -29,7 +31,7 @@ private:
     User* current_user;
     MoneyClass balance;
 public:
-    Application();
+    Application(const std::string& usersfile, const std::string& itemsfile);
 
     void run();
 

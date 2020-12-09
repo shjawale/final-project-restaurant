@@ -1,11 +1,11 @@
 #include "../headers/Application.hpp"
 
-Application::Application(){
+Application::Application(const std::string& usersfile, const std::string& itemsfile): users(usersfile), items(itemsfile){
     menu = new BasicNestedMenu("RESTAURANT");
     menu->addWindow(login);
     menu->addWindow(manWindow);
-    menu->addWindow(new OrderMenu("MAKE ORDER", "../files/items.txt", &orders));
-    menu->addWindow(new ExtraMenu("EXTRA", "../files/items.txt", &orders));
+    menu->addWindow(new OrderMenu("MAKE ORDER", items, &orders));
+    menu->addWindow(new ExtraMenu("EXTRA", items, &orders));
     menu->addWindow(new CheckoutWindow("CHECKOUT", &orders, &balance));
     menu->switchWindow(0);
 }
