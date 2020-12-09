@@ -22,7 +22,7 @@
 ## Menu Class Diagram
 ![](Images/MenuClass.png)
 
-For this class we have decided to use the composite pattern. The `Menu` class is, in this case, is the `Component`, the `BasicMenuOption` is a `Leaf` and the `BasicNestedMenu` is a `Composite`. For our project we will not be using a GUI, but rather a text-based interface, However adding a graphic interface is also possible with this class. For the menu class, one of our goals was to make it very modular, since we may be working each window of the menu separately, so this class allows for each of us to be able to separately work on different menus and later add them as either new submenus or menus of their own.
+For this class we have decided to use the composite pattern. The `Menu` class is, in this case, is the `Component`, the `BasicMenuOption` is a `Leaf` and the `BasicdMenu` is a `Composite`, then there's the `BasicNestedMenu` which is not really part of the pattern but rather works as a bigger menu that can hold a collection of menu windows. For our project we will not be using a GUI, but rather a text-based interface. For the menu class, one of our goals was to make it very modular, since we may be working each window of the menu separately, so this class allows for each of us to be able to separately work on different menus and later add them as either new submenus or menus of their own.
 
 ## Item Class
 ![](Images/Product.PNG)
