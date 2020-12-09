@@ -20,17 +20,17 @@ class Item
     public:
         Item();
         Item(std::string name, IDisplayBehavior* displayType);
-        void setPrice(MoneyClass price);
-        MoneyClass getPrice();
-        void setName(std::string name);
-        std::string getName();
-        void setTotalPrice(double money);
-        std::string getModification(int i);
-        Item* getItem(int i);
-        int getModSize();
-        int getItemSize();
-        void getDisplay();
-        double getTotalPrice();
+        void setPrice(MoneyClass price);    //Tested
+        MoneyClass getPrice();              //Tested
+        void setName(std::string name);     //Tested
+        std::string getName();              //Tested
+        void setTotalPrice(double money);   //
+        std::string getModification(int i); //Tested
+        Item* getItem(int i);               //Tested
+        int getModSize();                   //Tested
+        int getItemSize();                  //Tested
+        void getDisplay();                  //Tested
+        double getTotalPrice();             //Tested
         std::string displayItem();
 };
 
