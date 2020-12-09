@@ -39,6 +39,7 @@ ADD_EXECUTABLE(unit_tests
     include/components/src/plate.cpp
     include/components/src/ItemCreator.cpp
     include/components/src/MultiItemDisplay.cpp
+    include/components/src/HelperFunctions.cpp
 )
 
 ADD_EXECUTABLE(OrderDisplayTest
