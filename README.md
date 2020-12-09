@@ -49,7 +49,7 @@ A Login that was incorrect and failed to actually login the user.
 ## Initial User Registration
 ![](Images/Screenshots/Register.PNG)
 
-An initial register of a user with the manager title for future options.
+An initial registration of a user with the Manager title for future options.
 
 ## Using Previous Registration to Login
 ![](Images/Screenshots/SuccessfulLogin.PNG)
@@ -61,15 +61,15 @@ A successful login using the information that was registered previously.
 
 The file which stores all registered users that has encryption ability.
 
-## The Make an Order Menu with the Make Plate option
+## The Make Order Menu with the Make Plate option
 ![](Images/Screenshots/MakeOrderMakePlate.PNG)
 
-After selecting the Make Order menu option, it has the `Make Plate`, `Remove Plate` and `Return` options. We then selected the `Make Plate` option which reveals the given selection of Items and their prices to put in a plate and the choice for the user to select. We also see incorrect user input which prompts the user to re-enter their choice until it is correct, and once the user is done then we output the current order with all of the current plates and items.
+After selecting the `Make Order` menu option, it has the `Make Plate`, `Remove Plate` and `Return` options. We then selected the `Make Plate` option which reveals the given selection of Items and their prices to put in a plate and the choice for the user to select. We also see incorrect user input which prompts the user to re-enter their choice until it is correct, and once the user is done then we output the current order with all of the current plates and items.
 
 ## The Remove Plate Option
 ![](Images/Screenshots/RemovePlate.PNG)
 
-After the user makes a plate they can then choose to remove a plate by choosing which one on the order and it deletes it from the order.
+After the user makes a plate they can then choose to remove a plate by selecting a palte or item on the order and it deletes it from the order while the adjusting the price.
 
 ## The Extra Options Menu
 ![](Images/Screenshots/ExtraMenu.PNG)
@@ -99,12 +99,12 @@ Within the Extra Menu, the Add a Sauce option will allow the user to add a sauce
 ## Extra Menu Remove an Item Option
 ![](Images/Screenshots/RemoveExtraItem.PNG)
 
-The `Remove an Item or Plate` option will prompt the user to choose an item based on position from the top to the bottom which when selected will delete that Item or Plate from the overall Order.
+The `Remove an Item or Plate` option will prompt the user to choose an item or plate based on position from the top to the bottom which when selected will delete that Item or Plate from the overall Order.
 
 ## The Checkout Menu
 ![](Images/Screenshots/Checkout1.PNG)
 
-Once the user selects the `Checkout` menu, they will be presented with the total order and the total price, with the options to pay for the order with cash, to cancel the current order, or to back to the previous menu.
+Once the user selects the `Checkout` menu, they will be presented with the total order and the total price, with the options to pay for the order with cash, to cancel the current order, or to go back to the previous menu.
 
 ## The Checkout with Pay
 ![](Images/Screenshots/Checkout2.PNG)
