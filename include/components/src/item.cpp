@@ -22,7 +22,7 @@ void Item::setPrice(MoneyClass price)
 
 MoneyClass Item::getPrice()
 {
-	return price;
+	return this->price;
 }
 
 void Item::setName(std::string name)
