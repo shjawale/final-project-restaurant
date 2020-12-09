@@ -121,5 +121,5 @@ If the user has a title of Manager then they can use the Manager menu, which has
 
 Once the user backs out of the menus they are using, then they can press any character (not an integer) to quit the program.
 
-#Tests
+# Tests
 Our testing format for all our functions and classes was googletests. We tested our menu and display classes by checking the output of the print function in each class. The creator, item, and money classes were tested by creating an object and checking if the member variables matched the ones inputted as arguments to the member function or constructor.
