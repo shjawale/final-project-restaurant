@@ -54,4 +54,4 @@ In this project we are using the Factory Method Pattern  to create necessary Pro
  > Instructions on installing and running your application
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 
+The googletests format was the basis of how we tested our functions and classes. We tested our menu and display classes by checking the output of each of the print functions. The creator class was tested by creating an object and checking if the member variables matched the ones inputted as arguments to the member function. The remaining class tests were done in a similar way to the creator class test.
