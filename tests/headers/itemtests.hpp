@@ -35,7 +35,7 @@ TEST_F (TestItem, PriceTests)
 
     testItem->setPrice(00.00);
 
-    EXPECT_EQ(testItem->getPrice().getTotal(), "0.0");
+    EXPECT_EQ(testItem->getPrice().getTotal(), "0.00");
 
     testItem->setPrice(1.234);
 
