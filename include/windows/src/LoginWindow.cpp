@@ -72,7 +72,7 @@ void LoginWindow::login(){
     auto user = users.find(username);
 
     if(user != users.end()){
-        if(user->second->password == password){
+        if(user->second->password == asciiencrypt(password)){
             current_user = user->second;
             std::cout << "Welcome " << current_user->name << "\n\n";
             return;
@@ -97,15 +97,31 @@ void LoginWindow::add_user(){
     std::cout << "\n";
     std::cout << "Title: ";
     std::string title;
-    getline(std::cin, title);
-
-    if (users.find(username) != users.end()){
-        std::cout << "User Already Exists\n\n";
-        return;
+    std::cout << "\n\n1. Manger\n2. Cashier\n3. Cook\n\nEnter an option: ";
+    int a;
+    std::cin >> a;
+    switch (a)
+    {
+    case 1:
+        title = "Manager";
+        break;
+    case 2: 
+        title = "Cashier";
+    case 3:
+        title = "Cook";   
+    default:
+        title = "";
+        std::cout << "Invalid Option.\n\n";
     }
-    users[username] = new User({title, username, password});
 
-    writeUsers();
+    if(!title.empty()){
+        if (users.find(username) != users.end()){
+            std::cout << "User Already Exists\n\n";
+            return;
+        }
+        users[username] = new User({title, username, asciiencrypt(password)});
+        writeUsers();
+    }
 }
 
 void LoginWindow::Exit(){
