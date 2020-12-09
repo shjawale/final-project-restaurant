@@ -1,7 +1,7 @@
 #include "../headers/ItemCreator.hpp"
 #include "../headers/Item.h"
 #include "../headers/plate.h"
-#include "../headers/SingleItem.h"
+#include "../headers/Singleitem.h"
 #include "../headers/MultiItemDisplay.hpp"
 #include "../headers/SingleItemDisplay.hpp"
 #include <string>
