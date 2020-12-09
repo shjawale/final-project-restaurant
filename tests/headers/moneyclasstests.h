@@ -37,7 +37,7 @@ TEST(MoneyclassTest, GetCentTest)
 TEST(MoneyclassTest, GetTotalTest)
 {
     MoneyClass* test = new MoneyClass();
-    EXPECT_EQ(test->getTotal(), "0.0");
+    EXPECT_EQ(test->getTotal(), "0.00");
 
     test->setMoney(123.45);
     EXPECT_EQ(test->getTotal(), "123.45");
