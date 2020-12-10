@@ -10,7 +10,7 @@ void OrderDisplay::display(Item* i)
     printAtCenter("Order: " + i->getName(), '=', 57);
     for(int j = 0; j < i->getItemSize(); j++)
     {
-        std::cout << std::setw(10);
+        std::cout << j + 1 << " " << std::setw(10);
         i->getItem(j)->getDisplay();
         std::cout << std::endl;
     }
